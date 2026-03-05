@@ -1,7 +1,13 @@
 """
-Dr. Estevão - AI Agent para atendimento jurídico
-Especializado em: Direito Trabalhista, Consultoria Legal
-Objetivo: Qualificar leads, coletar dados e agendar consultas
+Dr. Estevão - Agente Jurídico Multidisciplinar
+Advogado Sênior Especialista com domínio em 14 áreas do Direito
+
+Persona: Profissional experiente que diagnostica problemas jurídicos,
+demonstra autoridade técnica e conduz estrategicamente o cliente
+para consulta jurídica formal.
+
+Estratégia: Escuta ativa → Diagnóstico inicial → Investigação →
+Demonstração de complexidade → Conversão para consulta formal
 """
 
 import random
@@ -10,104 +16,342 @@ from datetime import datetime
 from typing import Optional, Dict, List
 
 class DrEstevaoAgent:
-    """Agente IA para atendimento jurídico fluido e vendas consultivas"""
+    """
+    Agente Dr. Estevão - Advogado Sênior Multidisciplinar
+
+    Áreas de Atuação:
+    - Direito Trabalhista
+    - Direito Civil
+    - Direito Empresarial
+    - Direito Imobiliário
+    - Direito do Consumidor
+    - Direito Previdenciário
+    - Direito Criminal
+    - Direito de Família
+    - Direito Sucessório
+    - Direito Médico e da Saúde
+    - Direito Tributário
+    - Direito Administrativo
+    - Direito Bancário
+    - Direito Digital
+    """
 
     def __init__(self):
-        self.conversation_stage = "greeting"  # Estágios: greeting, qualification, solution, closing, follow_up
+        self.conversation_stage = "greeting"  # greeting, listening, diagnosis, investigation, conversion
         self.client_data = {
             "nome": None,
             "email": None,
             "telefone": None,
-            "tipo_caso": None,
-            "descricao": None,
-            "urgencia": None,
+            "area_direito": None,
+            "problema_relatado": None,
+            "perguntas_feitas": [],
             "preferencia_consulta": None  # "presencial" ou "online"
         }
         self.conversation_history = []
-        self.ai_responses_attempt = 0
+        self.investigation_count = 0  # Contador de perguntas investigativas
 
     def get_greeting_responses(self) -> List[str]:
-        """Saudações variadas e acolhedoras"""
+        """Saudações profissionais do Dr. Estevão"""
         return [
-            "Olá! Sou o Dr. Estevão, advogado especializado em Direito Trabalhista. "
-            "Como posso ajudá-lo hoje?",
+            "Olá! Sou o Dr. Estevão, advogado com vasta experiência em diversas áreas do Direito. "
+            "Estou aqui para compreender sua situação jurídica e orientá-lo da melhor forma possível. "
+            "Por favor, me conte brevemente o que está acontecendo.",
 
-            "Bem-vindo! Meu nome é Dr. Estevão. Estou aqui para ouvir sobre sua situação "
-            "e ajudá-lo com questões trabalhistas e legais. O que o traz aqui?",
+            "Bem-vindo! Meu nome é Dr. Estevão. Atuo há muitos anos em diferentes áreas do Direito brasileiro. "
+            "Vou ouvir atentamente seu relato para entender como posso ajudá-lo juridicamente. "
+            "Fique à vontade para me contar sua situação.",
 
-            "Oi! Sou Dr. Estevão. Tenho mais de 15 anos de experiência em casos trabalhistas. "
-            "Gostaria de saber: qual é o seu caso?",
+            "Oi! Sou Dr. Estevão, advogado especialista multidisciplinar. "
+            "Tenho conhecimento profundo da legislação brasileira e posso orientá-lo em questões trabalhistas, "
+            "civis, empresariais, familiares e muitas outras áreas. O que o traz aqui hoje?"
         ]
 
-    def get_qualification_responses(self, user_input: str) -> Dict:
-        """Qualifica o lead com respostas fluidas e perguntas estratégicas"""
-
-        # Mapeamento de palavras-chave e sua intenção
-        intent_keywords = {
-            "demissao": {
-                "keywords": ["demitido", "demissão", "despedido", "demitem", "desligamento"],
-                "response": "Entendi. Demissões sem justa causa são muito comuns e temos "
-                           "ampla jurisprudência a favor do trabalhador. Você recebeu "
-                           "aviso prévio ou foi demitido sem justificativa?",
-                "intent": "demissao"
-            },
-            "assedio": {
-                "keywords": ["assédio", "assedio", "humilhação", "constrangimento", "perseguição"],
-                "response": "Assédio moral é extremamente grave e temos muitos casos ganhos. "
-                           "Você tem documentação ou testemunhas? Por quanto tempo isso vem acontecendo?",
-                "intent": "assedio_moral"
-            },
-            "horas_extras": {
-                "keywords": ["horas extras", "hora extra", "horas adicionais", "trabalho extra"],
-                "response": "Horas extras não pagas é direito seu! Você tem controle de ponto "
-                           "ou alguma forma de comprovar essas horas?",
-                "intent": "horas_extras"
-            },
-            "rescisao": {
-                "keywords": ["rescisão", "rescisao", "acertos", "fgts", "13º"],
-                "response": "Rescisão indevida é frequente. Você recebeu seu FGTS, 13º e acertos? "
-                           "Temos uma análise rápida que fazemos.",
-                "intent": "rescisao_irregular"
-            },
-            "discriminacao": {
-                "keywords": ["discriminação", "discriminacao", "preconceito", "racismo", "homofobia"],
-                "response": "Discriminação no trabalho é vedada por lei. Você tem registros ou "
-                           "testemunhas dessa discriminação?",
-                "intent": "discriminacao"
-            },
-            "beneficio": {
-                "keywords": ["seguro desemprego", "desemprego", "bolsa família", "benefício", "beneficio"],
-                "response": "Temos equipe especializada em benefícios trabalhistas. Sua demissão "
-                           "foi registrada na carteira?",
-                "intent": "beneficio_trabalhista"
-            }
-        }
+    def identify_legal_area(self, user_input: str) -> Dict:
+        """
+        Identifica a área do Direito com base no relato do cliente.
+        Retorna diagnóstico inicial e demonstra conhecimento técnico.
+        """
 
         user_lower = user_input.lower()
 
-        # Procurar por palavras-chave de forma inteligente
-        for case_type, case_info in intent_keywords.items():
-            for keyword in case_info["keywords"]:
-                if keyword in user_lower:
-                    self.client_data["tipo_caso"] = case_info["intent"]
-                    return {
-                        "response": case_info["response"],
-                        "stage": "deeper_qualification",
-                        "intent": case_info["intent"]
-                    }
+        # Mapeamento de áreas jurídicas com keywords e respostas profissionais
+        legal_areas = {
+            "trabalhista": {
+                "keywords": ["demitido", "demissão", "despedido", "trabalho", "emprego", "patrão",
+                            "horas extras", "hora extra", "fgts", "rescisão", "aviso prévio",
+                            "assédio moral", "assedio", "carteira assinada", "férias", "13º"],
+                "response": (
+                    "Entendi sua situação, e esse tipo de caso realmente aparece com bastante frequência "
+                    "no direito trabalhista brasileiro. A legislação trabalhista possui diversos mecanismos "
+                    "de proteção ao trabalhador, e dependendo dos detalhes do seu caso, você pode ter "
+                    "direitos importantes a serem preservados."
+                ),
+                "area": "Direito Trabalhista"
+            },
 
-        # Se não encontrar palavra-chave, fazer pergunta genérica
-        return {
-            "response": (
-                "Entendi. Para que eu possa melhor ajudá-lo, poderia me contar mais detalhes "
-                "sobre seu caso? Tenho experiência em: demissões, assédio moral, horas extras, "
-                "rescisão indevida, discriminação, benéfícios trabalhistas. Como posso ajudar?"
-            ),
-            "stage": "deeper_qualification",
-            "intent": "generic"
+            "consumidor": {
+                "keywords": ["comprei", "compra", "produto defeituoso", "serviço ruim", "empresa",
+                            "loja", "cancelamento", "reembolso", "cobrança indevida", "negativação",
+                            "spc", "serasa", "plano de saúde", "telefonia"],
+                "response": (
+                    "Sua situação envolve uma relação de consumo, área em que o Código de Defesa do Consumidor "
+                    "oferece proteção robusta ao consumidor. Esse tipo de caso costuma ter prazos específicos "
+                    "e exige análise cuidadosa das circunstâncias, documentos e direitos envolvidos."
+                ),
+                "area": "Direito do Consumidor"
+            },
+
+            "familia": {
+                "keywords": ["divórcio", "separação", "pensão alimentícia", "guarda", "filho", "filha",
+                            "casamento", "união estável", "cônjuge", "ex-marido", "ex-mulher", "paternidade"],
+                "response": (
+                    "Questões de família são sempre delicadas e envolvem aspectos emocionais e jurídicos importantes. "
+                    "A legislação brasileira possui regras específicas que protegem os direitos de todos os envolvidos, "
+                    "especialmente quando há crianças ou patrimônio em questão. Cada caso familiar é único e "
+                    "exige análise individualizada."
+                ),
+                "area": "Direito de Família"
+            },
+
+            "civil": {
+                "keywords": ["contrato", "dívida", "empréstimo", "acidente", "indenização", "danos",
+                            "responsabilidade civil", "prejuízo", "acordo", "calote"],
+                "response": (
+                    "Sua situação envolve questões de direito civil, área ampla que regula relações entre particulares. "
+                    "Existem diversos aspectos legais que precisam ser considerados: prazos prescricionais, "
+                    "responsabilidades, possibilidades de reparação e estratégias processuais cabíveis."
+                ),
+                "area": "Direito Civil"
+            },
+
+            "criminal": {
+                "keywords": ["denúncia", "processo criminal", "polícia", "crime", "furto", "roubo",
+                            "ameaça", "agressão", "difamação", "calúnia", "boletim de ocorrência"],
+                "response": (
+                    "Questões criminais exigem atenção imediata e acompanhamento jurídico especializado. "
+                    "A legislação penal brasileira possui procedimentos específicos, prazos processuais "
+                    "e garantias constitucionais que precisam ser observados rigorosamente. "
+                    "Cada caso criminal tem suas particularidades."
+                ),
+                "area": "Direito Criminal"
+            },
+
+            "previdenciario": {
+                "keywords": ["inss", "aposentadoria", "benefício", "auxílio-doença", "perícia",
+                            "previdência", "segurado", "contribuição"],
+                "response": (
+                    "Questões previdenciárias envolvem direitos sociais fundamentais e exigem conhecimento "
+                    "técnico da legislação do INSS, jurisprudência dos tribunais e procedimentos administrativos. "
+                    "Muitas vezes há prazos importantes e documentação específica que precisa ser analisada."
+                ),
+                "area": "Direito Previdenciário"
+            },
+
+            "imobiliario": {
+                "keywords": ["imóvel", "casa", "apartamento", "aluguel", "inquilino", "proprietário",
+                            "despejo", "compra e venda", "financiamento", "construtora"],
+                "response": (
+                    "Questões imobiliárias envolvem patrimônio importante e exigem análise cuidadosa de contratos, "
+                    "documentação do imóvel e legislação específica. Existem diversas nuances jurídicas "
+                    "que podem fazer diferença no resultado do seu caso."
+                ),
+                "area": "Direito Imobiliário"
+            },
+
+            "empresarial": {
+                "keywords": ["empresa", "societário", "cnpj", "sócio", "contrato social", "mei",
+                            "sociedade", "negócio", "empresa fechou"],
+                "response": (
+                    "Questões empresariais exigem visão estratégica e conhecimento da legislação comercial, "
+                    "tributária e societária. Dependendo da situação, existem diferentes caminhos jurídicos "
+                    "que podem ser adotados para proteger seus interesses."
+                ),
+                "area": "Direito Empresarial"
+            }
         }
 
-    def get_solution_response(self, user_input: str) -> Dict:
+        # Identificar área pela análise de keywords
+        for area_key, area_data in legal_areas.items():
+            for keyword in area_data["keywords"]:
+                if keyword in user_lower:
+                    self.client_data["area_direito"] = area_data["area"]
+                    return {
+                        "area": area_data["area"],
+                        "response": area_data["response"],
+                        "identified": True
+                    }
+
+        # Se não identificou área específica
+        return {
+            "area": "Análise Necessária",
+            "response": (
+                "Entendi. O relato que você me traz pode envolver diferentes aspectos jurídicos. "
+                "Para eu conseguir te orientar corretamente, preciso entender melhor alguns detalhes "
+                "da sua situação."
+            ),
+            "identified": False
+        }
+
+    def strategic_investigation(self, user_input: str) -> Dict:
+        """
+        Realiza investigação estratégica fazendo perguntas inteligentes
+        para demonstrar expertise e coletar informações cruciais.
+        """
+
+        area = self.client_data.get("area_direito", "Geral")
+
+        # Perguntas estratégicas por área do direito
+        investigation_questions = {
+            "Direito Trabalhista": [
+                "Quando exatamente isso aconteceu? É importante verificarmos os prazos legais.",
+                "Você possui algum documento ou registro que comprove sua situação? "
+                "Emails, mensagens, controle de ponto ou testemunhas?",
+                "Durante quanto tempo você trabalhou nessa empresa? "
+                "Isso pode influenciar significativamente seus direitos."
+            ],
+
+            "Direito do Consumidor": [
+                "Você chegou a registrar alguma reclamação formal à empresa ou ao Procon?",
+                "Possui nota fiscal, contrato ou algum comprovante da relação de consumo?",
+                "Quando ocorreu o problema? Dependendo do prazo, existem diferentes caminhos jurídicos."
+            ],
+
+            "Direito de Família": [
+                "Existem filhos envolvidos nessa situação?",
+                "Vocês possuem bens em comum que precisam ser considerados?",
+                "Já houve alguma tentativa de acordo ou mediação entre as partes?"
+            ],
+
+            "Direito Civil": [
+                "Existe algum contrato ou documento escrito relacionado a essa situação?",
+                "Você tentou resolver isso de forma amigável antes?",
+                "Há testemunhas ou outros envolvidos que possam corroborar sua versão?"
+            ],
+
+            "Direito Criminal": [
+                "Foi registrado boletim de ocorrência? Isso é fundamental para a análise do caso.",
+                "Existem provas materiais ou testemunhas do ocorrido?",
+                "Quando exatamente isso aconteceu? Prazos são cruciais em matéria penal."
+            ],
+
+            "Direito Previdenciário": [
+                "Você já deu entrada em algum pedido administrativo no INSS?",
+                "Possui toda a documentação médica e comprovantes de contribuição?",
+                "Já passou por perícia médica do INSS?"
+            ],
+
+            "Direito Imobiliário": [
+                "O imóvel possui toda a documentação regularizada?",
+                "Existe contrato de compra e venda ou locação formalizado?",
+                "Há alguma ação judicial ou protesto relacionado ao imóvel?"
+            ],
+
+            "Direito Empresarial": [
+                "A empresa possui contrato social atualizado e registrado?",
+                "Existem débitos tributários ou trabalhistas pendentes?",
+                "Quantos sócios estão envolvidos e qual a participação de cada um?"
+            ]
+        }
+
+        questions = investigation_questions.get(area, [
+            "Para eu entender melhor, você pode me dar mais detalhes sobre quando isso aconteceu?",
+            "Existe alguma documentação ou registro relacionado à sua situação?",
+            "Houve alguma tentativa de resolver isso de forma amigável?"
+        ])
+
+        # Selecionar pergunta com base no contador de investigação
+        if self.investigation_count < len(questions):
+            question = questions[self.investigation_count]
+            self.investigation_count += 1
+        else:
+            question = "Entendo. Baseado no que você me contou, vejo que sua situação tem particularidades importantes."
+
+        return {
+            "question": question,
+            "stage": "investigation"
+        }
+
+    def demonstrate_complexity(self, user_input: str) -> str:
+        """
+        Demonstra a complexidade jurídica do caso, mostrando que
+        é necessária análise formal com um advogado.
+        """
+
+        area = self.client_data.get("area_direito", "Essa área")
+
+        complexity_statements = [
+            f"Sua situação envolve aspectos jurídicos que exigem análise cuidadosa. "
+            f"{area} possui interpretações jurisprudenciais específicas que podem fazer "
+            f"toda a diferença no resultado do seu caso.",
+
+            f"Esse tipo de situação em {area} pode ter implicações jurídicas importantes. "
+            f"Existem prazos legais, documentação necessária e estratégias processuais "
+            f"que precisam ser avaliadas com precisão.",
+
+            f"Baseado no que você me relatou, vejo que existem variáveis jurídicas relevantes. "
+            f"Em {area}, cada detalhe pode alterar o caminho jurídico mais adequado para você.",
+
+            f"Compreendo sua situação. Casos como o seu em {area} normalmente exigem "
+            f"uma avaliação técnica detalhada, verificação de prazos legais e análise documental "
+            f"para determinar a melhor estratégia jurídica."
+        ]
+
+        return random.choice(complexity_statements)
+
+    def conversion_strategy(self) -> Dict:
+        """
+        Estratégia de conversão: conduz o cliente para consulta jurídica formal
+        de forma profissional e persuasiva, sem ser agressivo.
+        """
+
+        conversion_messages = [
+            {
+                "message": (
+                    "Para eu te orientar com precisão jurídica e analisar seu caso com segurança, "
+                    "o ideal é fazermos uma consulta jurídica formal. Nessa consulta consigo avaliar "
+                    "documentos, verificar prazos legais e te orientar exatamente sobre o melhor caminho jurídico."
+                ),
+                "cta": "Se quiser, você pode me enviar uma mensagem no WhatsApp para agendarmos a análise do seu caso."
+            },
+
+            {
+                "message": (
+                    "Esse tipo de situação realmente exige uma análise jurídica mais detalhada. "
+                    "Preciso verificar alguns documentos, analisar prazos e entender melhor todas as circunstâncias "
+                    "para te dar uma orientação jurídica segura e responsável."
+                ),
+                "cta": "Podemos agendar uma consulta para eu avaliar seu caso com a atenção que ele merece. "
+                       "Assim consigo te orientar corretamente."
+            },
+
+            {
+                "message": (
+                    "Para te dar uma orientação jurídica completa e responsável, preciso analisar "
+                    "seu caso com mais profundidade. Cada situação jurídica tem suas particularidades, "
+                    "e só com uma análise adequada consigo te indicar os melhores caminhos."
+                ),
+                "cta": "Se desejar, podemos marcar uma consulta. Me envie uma mensagem no WhatsApp "
+                       "e organizamos um horário para conversarmos com calma sobre seu caso."
+            },
+
+            {
+                "message": (
+                    "Vejo que sua situação tem aspectos importantes que merecem atenção jurídica adequada. "
+                    "Para eu te orientar com a segurança jurídica necessária, o correto é fazermos "
+                    "uma consulta formal onde posso analisar documentos e detalhes do seu caso."
+                ),
+                "cta": "Você prefere uma consulta **presencial** aqui no escritório ou **online** por videochamada? "
+                       "Ambas têm a mesma qualidade de atendimento."
+            }
+        ]
+
+        selected = random.choice(conversion_messages)
+
+        return {
+            "message": selected["message"],
+            "cta": selected["cta"],
+            "stage": "conversion"
+        }
         """Apresenta solução consultiva"""
 
         solutions = {
@@ -202,7 +446,10 @@ class DrEstevaoAgent:
         }
 
     def process_message(self, user_input: str) -> Dict:
-        """Processa mensagem do usuário e retorna resposta do agente"""
+        """
+        Orquestra a conversa seguindo a estratégia do Dr. Estevão:
+        Escuta ativa → Diagnóstico → Investigação → Demonstração de complexidade → Conversão
+        """
 
         # Registrar no histórico
         self.conversation_history.append({
@@ -211,60 +458,97 @@ class DrEstevaoAgent:
             "content": user_input
         })
 
-        # Determinar próximo estágio
+        # Máquina de estados conversacional
+
+        # 1. GREETING - Primeira interação
         if self.conversation_stage == "greeting":
+            response_text = random.choice(self.get_greeting_responses())
+            self.conversation_stage = "listening"
             response = {
-                "text": random.choice(self.get_greeting_responses()),
-                "stage": "qualification"
+                "text": response_text,
+                "stage": "listening"
             }
-            self.conversation_stage = "qualification"
 
-        elif self.conversation_stage == "qualification":
-            result = self.get_qualification_responses(user_input)
-            response = {
-                "text": result["response"],
-                "stage": result["stage"],
-                "intent": result.get("intent")
-            }
-            self.conversation_stage = "deeper_qualification"
+        # 2. LISTENING - Escuta ativa e diagnóstico inicial
+        elif self.conversation_stage == "listening":
+            diagnosis = self.identify_legal_area(user_input)
+            self.client_data["problema_relatado"] = user_input
 
-        elif self.conversation_stage in ["deeper_qualification", "deeper_info"]:
-            # Coletar mais informações antes de apresentar solução
-            if self.ai_responses_attempt < 2:
-                result = self.get_qualification_responses(user_input)
+            response_text = diagnosis["response"] + "\n\n"
+
+            if diagnosis["identified"]:
+                # Se identificou a área, inicia investigação
+                investigation = self.strategic_investigation(user_input)
+                response_text += investigation["question"]
+                self.conversation_stage = "investigation"
                 response = {
-                    "text": result["response"],
-                    "stage": "deeper_qualification",
-                    "intent": result.get("intent")
+                    "text": response_text,
+                    "stage": "investigation",
+                    "area_identificada": diagnosis["area"]
                 }
-                self.ai_responses_attempt += 1
             else:
-                # Apresentar solução
-                result = self.get_solution_response(user_input)
+                # Se não identificou, pede mais informações
+                response_text += "\n\nPode me contar com mais detalhes o que aconteceu?"
                 response = {
-                    "text": result["response"] + "\n\n🎯 **Vamos agendar sua consulta?**",
-                    "stage": "closing",
-                    "action": "present_solution"
+                    "text": response_text,
+                    "stage": "listening"
                 }
-                self.conversation_stage = "closing"
-                self.ai_responses_attempt = 0
 
-        elif self.conversation_stage == "closing":
-            result = self.get_closing_response()
+        # 3. INVESTIGATION - Perguntas estratégicas (até 3 perguntas)
+        elif self.conversation_stage == "investigation":
+            if self.investigation_count < 2:
+                # Continua investigação
+                investigation = self.strategic_investigation(user_input)
+                response_text = "Entendo. " + investigation["question"]
+                response = {
+                    "text": response_text,
+                    "stage": "investigation"
+                }
+            else:
+                # Após 2-3 perguntas, demonstra complexidade e converte
+                complexity = self.demonstrate_complexity(user_input)
+                conversion = self.conversion_strategy()
+
+                response_text = complexity + "\n\n" + conversion["message"] + "\n\n" + conversion["cta"]
+                self.conversation_stage = "conversion"
+                response = {
+                    "text": response_text,
+                    "stage": "conversion",
+                    "action": "request_consultation"
+                }
+
+        # 4. CONVERSION - Cliente interessado em consulta
+        elif self.conversation_stage == "conversion":
+            # Cliente demonstrou interesse, coletar dados
+            response_text = (
+                "Perfeito! Vou precisar de algumas informações para agendarmos sua consulta:\n\n"
+                "• Seu nome completo\n"
+                "• E-mail\n"
+                "• Telefone (WhatsApp)\n"
+                "• Preferência: Presencial ou Online?\n\n"
+                "Pode preencher o formulário abaixo que já entro em contato!"
+            )
+            self.conversation_stage = "data_collection"
             response = {
-                "text": result["response"],
+                "text": response_text,
                 "stage": "data_collection",
                 "action": "collect_data"
             }
-            self.conversation_stage = "data_collection"
 
+        # Fallback - Cliente continua conversando
         else:
+            response_text = (
+                "Compreendo. Para eu conseguir te ajudar da forma correta, "
+                "o ideal é agendarmos uma consulta jurídica. "
+                "Assim posso analisar seu caso com a atenção que ele merece. "
+                "Podemos fazer isso agora?"
+            )
             response = {
-                "text": "Como posso continuar ajudando?",
-                "stage": self.conversation_stage
+                "text": response_text,
+                "stage": "conversion"
             }
 
-        # Registrar resposta
+        # Registrar resposta no histórico
         self.conversation_history.append({
             "timestamp": datetime.now().isoformat(),
             "role": "assistant",
@@ -274,7 +558,7 @@ class DrEstevaoAgent:
         return response
 
     def collect_client_data(self, data: Dict) -> Dict:
-        """Coleta dados do cliente após qualificação"""
+        """Coleta dados do cliente para agendamento de consulta"""
 
         update_fields = ["nome", "email", "telefone", "preferencia_consulta"]
 
@@ -282,53 +566,78 @@ class DrEstevaoAgent:
             if field in data:
                 self.client_data[field] = data[field]
 
+        area = self.client_data.get("area_direito", "Direito")
+        nome = self.client_data.get("nome", "Cliente")
+        preferencia = self.client_data.get("preferencia_consulta", "online")
+
         return {
             "status": "collected",
             "client_data": self.client_data,
             "next_action": "send_whatsapp",
-            "message": f"Ótimo {self.client_data.get('nome', 'Cliente')}! "
-                      f"Vou confirmar sua consulta {"presencial"
-                      if self.client_data.get('preferencia_consulta') == 'presencial'
-                      else 'online'} via WhatsApp!"
+            "message": (
+                f"Excelente, {nome}! Recebi seus dados. "
+                f"Vou preparar uma mensagem de confirmação para você via WhatsApp "
+                f"para agendarmos sua consulta {"presencial" if preferencia == "presencial" else "online"} "
+                f"sobre {area}."
+            )
         }
 
     def generate_whatsapp_message(self) -> str:
-        """Gera mensagem de confirmação para enviar via WhatsApp"""
+        """Gera mensagem profissional de confirmação para WhatsApp"""
 
-        consulta_tipo = self.client_data.get("preferencia_consulta", "online")
-        tipo_caso = self.client_data.get("tipo_caso", "Direito Trabalhista").replace("_", " ").title()
+        nome = self.client_data.get("nome", "Cliente")
+        area = self.client_data.get("area_direito", "Questão Jurídica")
+        preferencia = self.client_data.get("preferencia_consulta", "online").title()
+        email = self.client_data.get("email", "não informado")
 
         message = (
-            f"Olá {self.client_data.get('nome', 'Cliente')}!\n\n"
-            f"Confirmo sua consulta *{consulta_tipo.title()}* com o Dr. Estevão!\n"
-            f"📋 Tipo de caso: {tipo_caso}\n"
-            f"📅 Nos próximos 2 dias úteis você receberá um horário disponível\n"
-            f"💰 Consulta inicial sem custo\n\n"
-            f"Para qualquer dúvida, é só chamar! 😊"
+            f"Olá, {nome}!\n\n"
+            f"Aqui é o *Dr. Estevão*. "
+            f"Recebi seu contato através do nosso chat e vi que você precisa de orientação jurídica em *{area}*.\n\n"
+            f"📋 *Resumo da sua solicitação:*\n"
+            f"• Área: {area}\n"
+            f"• Tipo de consulta: {preferencia}\n"
+            f"• E-mail: {email}\n\n"
+            f"🗓️ *Próximos passos:*\n"
+            f"Vou analisar inicialmente o relato que você me passou e em breve entrarei em contato "
+            f"para agendarmos sua consulta jurídica.\n\n"
+            f"⚖️ *Compromisso profissional:*\n"
+            f"Como advogado, meu objetivo é analisar juridicamente seu caso com profundidade, "
+            f"verificar prazos legais e te orientar sobre os melhores caminhos jurídicos disponíveis.\n\n"
+            f"Em caso de dúvidas, pode responder esta mensagem!\n\n"
+            f"Atenciosamente,\n"
+            f"*Dr. Estevão*\n"
+            f"Advogado - OAB/SP"
         )
 
         return message
 
 
-# Exemplo de uso
+# Exemplo de uso e teste
 if __name__ == "__main__":
     agent = DrEstevaoAgent()
 
-    # Simulação de conversa
-    print("🤖 Dr. Estevão iniciando...\n")
+    print("🎓 Dr. Estevão - Agente Jurídico Multidisciplinar\n")
+    print("=" * 70)
 
-    # Primeira mensagem (saudação)
-    response = agent.process_message("Oi, tenho um problema no trabalho")
-    print(f"Dr.E: {response['text']}\n")
+    # Simulação de conversa 1: Direito Trabalhista
+    print("\n📋 CENÁRIO 1: Direito Trabalhista\n")
 
-    # Segunda mensagem (qualificação)
-    response = agent.process_message("Fui demitido sem justa causa")
-    print(f"Dr.E: {response['text']}\n")
+    resp1 = agent.process_message("Iniciar")
+    print(f"Dr. Estevão: {resp1['text'][:100]}...\n")
 
-    # Terceira mensagem (aprofundamento)
-    response = agent.process_message("Não recebi aviso, só me chamaram para assinar rescisão")
-    print(f"Dr.E: {response['text']}\n")
+    resp2 = agent.process_message("Fui demitido sem justa causa e não recebi minhas verbas rescisórias")
+    print(f"Dr. Estevão: {resp2['text'][:150]}...")
+    print(f"[Stage: {resp2['stage']}]\n")
 
-    # Quarta mensagem (solução)
-    response = agent.process_message("Tenho registros de tudo isso")
-    print(f"Dr.E: {response['text']}\n")
+    resp3 = agent.process_message("Sim, tenho emails e mensagens comprovando tudo")
+    print(f"Dr. Estevão: {resp3['text'][:150]}...")
+    print(f"[Stage: {resp3['stage']}]\n")
+
+    resp4 = agent.process_message("Trabalhei lá por 3 anos")
+    print(f"Dr. Estevão: Demonstração de complexidade + Conversão...")
+    print(f"[Stage: {resp4['stage']}]\n")
+
+    print("=" * 70)
+    print("✅ Agente Dr. Estevão reconstruído com persona profissional!")
+
