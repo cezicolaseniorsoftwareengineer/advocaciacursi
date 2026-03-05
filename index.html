@@ -166,28 +166,42 @@
         <!-- ============================================================
          SOBRE
          ============================================================ -->
-        <section id="sobre" class="section" style="background: var(--bg-secondary);">
-            <div class="container-narrow">
-                <h2 class="text-center mb-4">Sobre <span class="accent-purple">Dr. Estevão Cursi</span></h2>
-                <div class="card" style="max-width: 900px; margin: 0 auto;">
-                    <p class="card__description" style="font-size: 1.1rem; line-height: 1.8;">
+        <section id="sobre" class="section"
+            style="background: linear-gradient(180deg, var(--bg-secondary) 0%, rgba(11,20,36,0.95) 100%); position: relative; border-top: 1px solid rgba(199,168,107,0.1); border-bottom: 1px solid rgba(199,168,107,0.1);">
+            <div class="container-narrow" style="position: relative; z-index: 1;">
+                <h2 class="text-center mb-4">Sobre <span class="accent-gold">Dr. Estevão Cursi</span></h2>
+                <div class="card"
+                    style="max-width: 900px; margin: 0 auto; text-align: center; border-top: 2px solid rgba(199,168,107,0.5);">
+                    <div
+                        style="width: 80px; height: 3px; background: var(--accent-gold); margin: 0 auto 2rem auto; border-radius: 2px;">
+                    </div>
+                    <p class="card__description" style="font-size: 1.15rem; line-height: 1.9; margin-bottom: 1.5rem;">
                         Com <strong>anos de experiência</strong> em advocacia, Dr. Estevão Cursi se destaca pela
-                        <strong>atuação técnica, estratégica e humanizada</strong> em diversas áreas do direito.
+                        <strong style="color: var(--text-primary);">atuação técnica, estratégica e humanizada</strong>
+                        em diversas áreas do direito.
                     </p>
-                    <p class="card__description" style="font-size: 1.1rem; line-height: 1.8;">
+                    <p class="card__description" style="font-size: 1.15rem; line-height: 1.9; margin-bottom: 1.5rem;">
                         Especialista em <strong>execução de créditos trabalhistas e cíveis</strong>, utiliza ferramentas
-                        tecnológicas como o <strong>IDPJ</strong> para maximizar eficiência e resultados para seus
-                        clientes.
+                        tecnológicas de ponta como o <strong>IDPJ</strong> para maximizar eficiência e resultados para
+                        seus
+                        clientes corporativos e individuais.
                     </p>
-                    <p class="card__description" style="font-size: 1.1rem; line-height: 1.8;">
+                    <p class="card__description" style="font-size: 1.15rem; line-height: 1.9; margin-bottom: 2rem;">
                         Presta assessoria completa para <strong>empresas</strong>, oferece defesa criminal robusta e
-                        atua com sensibilidade em questões de <strong>direito da saúde</strong>, incluindo suporte a
-                        famílias de pessoas com autismo e câncer.
+                        atua com sensibilidade suprema em questões de <strong
+                            style="color: var(--text-primary);">direito da saúde</strong>, incluindo suporte essencial a
+                        famílias de pacientes oncológicos e pessoas com autismo.
                     </p>
-                    <p class="card__description" style="font-size: 1.1rem; line-height: 1.8; margin-bottom: 0;">
-                        <strong>Compromisso com a excelência, ética profissional e resultados concretos.</strong>
+                    <p class="card__description"
+                        style="font-size: 1.3rem; line-height: 1.8; margin-bottom: 0; color: var(--accent-gold); font-family: var(--font-heading); font-style: italic;">
+                        "Compromisso inabalável com a excelência, ética profissional e a entrega de resultados
+                        concretos."
                     </p>
                 </div>
+            </div>
+            <!-- Orb background for visual depth -->
+            <div
+                style="position: absolute; top: 50%; left: 10%; width: 400px; height: 400px; background: radial-gradient(circle, rgba(199,168,107,0.05) 0%, transparent 70%); transform: translateY(-50%); pointer-events: none;">
             </div>
         </section>
 
@@ -205,36 +219,28 @@
                     <form data-validate>
                         <div style="margin-bottom: var(--spacing-md);">
                             <label for="nome"
-                                style="display: block; margin-bottom: var(--spacing-xs); color: var(--text-primary); font-weight: 600;">Nome
+                                class="form-label">Nome
                                 completo</label>
-                            <input type="text" id="nome" name="nome" required
-                                style="width: 100%; padding: var(--spacing-sm); border-radius: var(--radius-sm); border: 1px solid rgba(255,255,255,0.2); background: var(--bg-secondary); color: var(--text-primary);"
-                                aria-required="true">
+                            <input type="text" id="nome" name="nome" required aria-required="true">
                         </div>
 
                         <div style="margin-bottom: var(--spacing-md);">
                             <label for="email"
-                                style="display: block; margin-bottom: var(--spacing-xs); color: var(--text-primary); font-weight: 600;">E-mail</label>
-                            <input type="email" id="email" name="email" required
-                                style="width: 100%; padding: var(--spacing-sm); border-radius: var(--radius-sm); border: 1px solid rgba(255,255,255,0.2); background: var(--bg-secondary); color: var(--text-primary);"
-                                aria-required="true">
+                                class="form-label">E-mail</label>
+                            <input type="email" id="email" name="email" required aria-required="true">
                         </div>
 
                         <div style="margin-bottom: var(--spacing-md);">
                             <label for="telefone"
-                                style="display: block; margin-bottom: var(--spacing-xs); color: var(--text-primary); font-weight: 600;">Telefone</label>
-                            <input type="tel" id="telefone" name="telefone" required
-                                style="width: 100%; padding: var(--spacing-sm); border-radius: var(--radius-sm); border: 1px solid rgba(255,255,255,0.2); background: var(--bg-secondary); color: var(--text-primary);"
-                                aria-required="true">
+                                class="form-label">Telefone</label>
+                            <input type="tel" id="telefone" name="telefone" required aria-required="true">
                         </div>
 
                         <div style="margin-bottom: var(--spacing-md);">
                             <label for="area"
-                                style="display: block; margin-bottom: var(--spacing-xs); color: var(--text-primary); font-weight: 600;">Área
+                                class="form-label">Área
                                 de Interesse</label>
-                            <select id="area" name="area" required
-                                style="width: 100%; padding: var(--spacing-sm); border-radius: var(--radius-sm); border: 1px solid rgba(255,255,255,0.2); background: var(--bg-secondary); color: var(--text-primary);"
-                                aria-required="true">
+                            <select id="area" name="area" required aria-required="true">
                                 <option value="">Selecione uma área</option>
                                 <option value="Execução Trabalhista">Execução Cível e Trabalhista</option>
                                 <option value="Assessoria Empresas">Assessoria de Empresas</option>
@@ -246,9 +252,9 @@
 
                         <div style="margin-bottom: var(--spacing-md);">
                             <label for="mensagem"
-                                style="display: block; margin-bottom: var(--spacing-xs); color: var(--text-primary); font-weight: 600;">Mensagem</label>
+                                class="form-label">Mensagem</label>
                             <textarea id="mensagem" name="mensagem" rows="5" required
-                                style="width: 100%; padding: var(--spacing-sm); border-radius: var(--radius-sm); border: 1px solid rgba(255,255,255,0.2); background: var(--bg-secondary); color: var(--text-primary); resize: vertical;"
+                                
                                 aria-required="true"></textarea>
                         </div>
 
