@@ -665,6 +665,17 @@ class DrEstevaoChat {
         <input type="text" class="contact-name" placeholder="Seu nome completo" style="width: 100%; padding: 8px; margin-bottom: 8px; border: 1px solid rgba(59, 130, 246, 0.2); border-radius: 6px; background: rgba(15, 23, 42, 0.8); color: white; box-sizing: border-box; font-size: 13px;" />
         <input type="email" class="contact-email" placeholder="Seu e-mail" style="width: 100%; padding: 8px; margin-bottom: 8px; border: 1px solid rgba(59, 130, 246, 0.2); border-radius: 6px; background: rgba(15, 23, 42, 0.8); color: white; box-sizing: border-box; font-size: 13px;" />
         <input type="tel" class="contact-phone" placeholder="Seu WhatsApp" style="width: 100%; padding: 8px; margin-bottom: 12px; border: 1px solid rgba(59, 130, 246, 0.2); border-radius: 6px; background: rgba(15, 23, 42, 0.8); color: white; box-sizing: border-box; font-size: 13px;" />
+        <div style="margin-bottom: 12px; padding: 8px; background: rgba(15, 23, 42, 0.8); border-radius: 6px; border: 1px solid rgba(59, 130, 246, 0.2);">
+          <p style="margin: 0 0 8px; color: #a5b4fc; font-size: 12px;">Formato da consulta:</p>
+          <label style="display: block; margin-bottom: 6px; cursor: pointer; color: white; font-size: 12px;">
+            <input type="radio" name="preferencia_consulta" value="presencial" style="margin-right: 6px;" />
+            Presencial
+          </label>
+          <label style="display: block; cursor: pointer; color: white; font-size: 12px;">
+            <input type="radio" name="preferencia_consulta" value="online" checked style="margin-right: 6px;" />
+            Online
+          </label>
+        </div>
         <button class="contact-submit whatsapp-button">Enviar para WhatsApp</button>
       </div>
     `;
@@ -678,19 +689,24 @@ class DrEstevaoChat {
         const name = formEl.querySelector(".contact-name").value;
         const email = formEl.querySelector(".contact-email").value;
         const phone = formEl.querySelector(".contact-phone").value;
+        const preferenceRadios = formEl.querySelectorAll(
+          'input[name="preferencia_consulta"]',
+        );
+        let preferencia = "online";
+        for (const radio of preferenceRadios) {
+          if (radio.checked) {
+            preferencia = radio.value;
+            break;
+          }
+        }
 
         if (!name || !email || !phone) {
           alert("Por favor, preencha todos os campos.");
           return;
         }
 
-        const message = `Olá Dr. Estevão! Meu nome é ${name}, meu e-mail é ${email} e gostaria de agendar uma consulta. Meu WhatsApp: ${phone}`;
-        const whatsappUrl = `https://wa.me/5511985773185?text=${encodeURIComponent(message)}`;
-
-        window.open(whatsappUrl, "_blank");
-
         try {
-          await fetch(`${this.backendUrl}/contact`, {
+          const response = await fetch(`${this.backendUrl}/contact`, {
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify({
@@ -698,16 +714,31 @@ class DrEstevaoChat {
               client_name: name,
               client_email: email,
               client_phone: phone,
+              preferencia_consulta: preferencia,
             }),
           });
 
+          if (!response.ok) {
+            throw new Error(`Backend returned ${response.status}`);
+          }
+
+          const data = await response.json();
+          const whatsappUrl = data.whatsapp_link;
+          const whatsappMessage = data.whatsapp_message;
+
+          window.open(whatsappUrl, "_blank");
+
           this.addMessage(
             "assistant",
-            "Seu contato foi salvo! Espero conversar com você no WhatsApp!",
+            `✓ Consulta ${preferencia === "presencial" ? "PRESENCIAL" : "ONLINE"} confirmada!\n\nMensagem enviada para WhatsApp. Estarei em contato em breve com você, ${name}!`,
           );
           formEl.remove();
         } catch (error) {
           console.error("Erro ao salvar contato:", error);
+          this.addMessage(
+            "assistant",
+            "Houve um erro ao salvar seu contato. Tente novamente ou envie diretamente via WhatsApp.",
+          );
         }
       });
   }
