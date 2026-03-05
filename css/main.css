@@ -208,13 +208,11 @@ a:hover {
 
 .nav__logo {
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   gap: var(--spacing-md);
-  font-size: 1.25rem;
-  font-family: var(--font-heading);
-  font-weight: 700;
   color: var(--text-primary);
   flex-shrink: 0;
+  margin-top: -30px;
 }
 
 .nav__logo span {
@@ -228,6 +226,8 @@ a:hover {
   width: auto;
   object-fit: contain;
   filter: drop-shadow(0 2px 8px rgba(199, 168, 107, 0.3));
+  transform: scale(1.5) translateY(-10px);
+  transform-origin: left top;
 }
 
 .nav__menu {
