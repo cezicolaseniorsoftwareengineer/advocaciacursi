@@ -162,65 +162,41 @@
         });
 
         if (isValid) {
-          // Coletar dados do formulário
           const leadData = {
-            nome: form.querySelector("#nome").value,
-            email: form.querySelector("#email").value,
-            telefone: form.querySelector("#telefone").value,
-            mensagem: form.querySelector("#mensagem").value,
-            area: form.querySelector("#area")
-              ? form.querySelector("#area").value
-              : "Contato Geral",
+            nome: form.querySelector("#nome")?.value || "Não informado",
+            email: form.querySelector("#email")?.value || "Não informado",
+            telefone: form.querySelector("#telefone")?.value || "Não informado",
+            mensagem: form.querySelector("#mensagem")?.value || "Não informado",
+            area: form.querySelector("#area")?.value || "Contato Geral",
           };
 
-          // Salvar no localStorage
-          saveLead(leadData);
+          // Construir e codificar a mensagem do WhatsApp
+          const whatsappNumber = "5511985773185";
+          const rawMessage = [
+            "Olá, Dr. Estevão Cursi!",
+            "",
+            "Recebi um contato via formulário do site com os seguintes dados:",
+            "",
+            `Nome: ${leadData.nome}`,
+            `E-mail: ${leadData.email}`,
+            `Telefone: ${leadData.telefone}`,
+            `Área de Interesse: ${leadData.area}`,
+            `Mensagem: ${leadData.mensagem}`,
+            "",
+            "Por favor, entre em contato.",
+          ].join("\n");
 
-          // Mostrar mensagem de sucesso
-          const successMsg = document.getElementById("formSuccess");
-          if (successMsg) {
-            successMsg.style.display = "block";
-          }
+          const message = encodeURIComponent(rawMessage);
+          const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${message}`;
 
-          // Limpar formulário
+          // Abrir o WhatsApp em nova aba
+          window.open(whatsappUrl, "_blank");
+
           form.reset();
-
-          // Esconder mensagem após 5s
-          setTimeout(() => {
-            if (successMsg) {
-              successMsg.style.display = "none";
-            }
-          }, 5000);
-
-          console.log("Lead cadastrado:", leadData);
+          console.log("Formulário enviado para WhatsApp:", leadData);
         }
       });
     });
-  };
-
-  // ============================================================
-  // SAVE LEAD TO LOCALSTORAGE
-  // ============================================================
-
-  const saveLead = (leadData) => {
-    // Obter leads existentes
-    const stored = localStorage.getItem("advocaciaLeads");
-    const leads = stored ? JSON.parse(stored) : [];
-
-    // Adicionar novo lead
-    const newLead = {
-      id: Date.now(),
-      ...leadData,
-      status: "frio", // Default: lead frio
-      data: new Date().toISOString(),
-    };
-
-    leads.unshift(newLead); // Adicionar no início
-
-    // Salvar de volta
-    localStorage.setItem("advocaciaLeads", JSON.stringify(leads));
-
-    return newLead;
   };
 
   // ============================================================
