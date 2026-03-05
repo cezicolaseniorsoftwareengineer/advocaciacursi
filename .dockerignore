@@ -1,0 +1,19 @@
+# Bloqueios de contexto Docker
+.copilot/
+.github/
+.vscode/
+
+# Documentação não autorizada
+*.md
+**/*.md
+
+# Arquivos locais/sensíveis
+.env
+.env.local
+*.log
+logs/
+
+# Cache/build
+node_modules/
+dist/
+build/

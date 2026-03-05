@@ -1,0 +1,44 @@
+# ========================================
+# REPOSITÓRIO: SOMENTE CÓDIGO-FONTE
+# Tudo que é configuração de agente/IDE/devops local fica fora do Git
+# ========================================
+
+# Diretórios bloqueados (nunca commitar)
+.copilot/
+.github/
+.vscode/
+
+# Arquivos Markdown (inclui docs de agente e documentação auxiliar)
+*.md
+**/*.md
+
+# Documentos e anexos não-código
+*.pdf
+
+# IDEs e metadata local
+.idea/
+*.iml
+.project
+.classpath
+.settings/
+
+# Build artifacts
+target/
+build/
+dist/
+*.class
+*.jar
+*.war
+*.ear
+
+# Logs
+*.log
+logs/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Environment variables
+.env
+.env.local

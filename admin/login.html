@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noindex, nofollow">
+    <title>Login Administrativo | Dr. Estevão Cursi</title>
+    <link rel="stylesheet" href="../css/main.css">
+    <link rel="icon" type="image/png" href="../img.png">
+    <style>
+        .login-container {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: var(--spacing-md);
+            background: var(--bg-primary);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .login-container::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at 30% 50%, rgba(59, 130, 246, 0.1), transparent 50%),
+                radial-gradient(circle at 70% 50%, rgba(139, 92, 246, 0.1), transparent 50%);
+            z-index: 0;
+        }
+
+        .login-box {
+            position: relative;
+            z-index: 1;
+            max-width: 450px;
+            width: 100%;
+            background: var(--bg-card);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: var(--radius-lg);
+            padding: var(--spacing-xl);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .login-box__logo {
+            text-align: center;
+            margin-bottom: var(--spacing-xl);
+        }
+
+        .login-box__logo img {
+            height: 160px;
+            width: auto;
+            margin-bottom: var(--spacing-md);
+            filter: drop-shadow(0 2px 8px rgba(59, 130, 246, 0.3));
+        }
+
+        .login-box__title {
+            text-align: center;
+            font-size: 1.75rem;
+            margin-bottom: var(--spacing-xs);
+            color: var(--text-primary);
+        }
+
+        .login-box__subtitle {
+            text-align: center;
+            color: var(--text-secondary);
+            margin-bottom: var(--spacing-xl);
+            font-size: 0.95rem;
+        }
+
+        .form-group {
+            margin-bottom: var(--spacing-md);
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: var(--spacing-xs);
+            color: var(--text-primary);
+            font-weight: 600;
+            font-size: 0.95rem;
+        }
+
+        .form-group input {
+            width: 100%;
+            padding: var(--spacing-sm) var(--spacing-md);
+            border-radius: var(--radius-sm);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            background: var(--bg-secondary);
+            color: var(--text-primary);
+            font-size: 1rem;
+            transition: all var(--transition-base);
+        }
+
+        .form-group input:focus {
+            outline: none;
+            border-color: var(--accent-blue);
+            box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+        }
+
+        .form-group input::placeholder {
+            color: var(--text-muted);
+        }
+
+        .error-message {
+            display: none;
+            background: rgba(239, 68, 68, 0.1);
+            border: 1px solid rgba(239, 68, 68, 0.3);
+            color: #ef4444;
+            padding: var(--spacing-sm);
+            border-radius: var(--radius-sm);
+            margin-bottom: var(--spacing-md);
+            font-size: 0.9rem;
+        }
+
+        .error-message.show {
+            display: block;
+        }
+
+        .login-box__footer {
+            text-align: center;
+            margin-top: var(--spacing-lg);
+            padding-top: var(--spacing-md);
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .login-box__footer a {
+            color: var(--accent-blue);
+            font-size: 0.9rem;
+            text-decoration: none;
+            transition: color var(--transition-base);
+        }
+
+        .login-box__footer a:hover {
+            color: var(--accent-purple);
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="login-container">
+        <div class="login-box">
+            <div class="login-box__logo">
+                <img src="../img.jpeg" alt="Logo Dr. Estevão Cursi">
+                <h1 class="login-box__title">Acesso <span class="accent-blue">Administrativo</span></h1>
+                <p class="login-box__subtitle">Sistema de Gerenciamento de Leads</p>
+            </div>
+
+            <div id="errorMessage" class="error-message" role="alert"></div>
+
+            <form id="loginForm">
+                <div class="form-group">
+                    <label for="username">Usuário</label>
+                    <input type="text" id="username" name="username" placeholder="Digite seu usuário" required
+                        autocomplete="username">
+                </div>
+
+                <div class="form-group">
+                    <label for="password">Senha</label>
+                    <input type="password" id="password" name="password" placeholder="Digite sua senha" required
+                        autocomplete="current-password">
+                </div>
+
+                <button type="submit" class="btn btn--primary" style="width: 100%; margin-top: var(--spacing-md);">
+                    Acessar Dashboard
+                </button>
+            </form>
+
+            <div class="login-box__footer">
+                <a href="../index.html">← Voltar ao site</a>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Login authentication
+        document.getElementById('loginForm').addEventListener('submit', function (e) {
+            e.preventDefault();
+
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
+            const errorMessage = document.getElementById('errorMessage');
+
+            // Credenciais padrão (em produção, usar backend real)
+            const validUsers = {
+                'admin': 'admin123',
+                'estevao': 'cursi2026',
+                'advocacia': 'leads@2026'
+            };
+
+            if (validUsers[username] && validUsers[username] === password) {
+                // Login bem-sucedido
+                sessionStorage.setItem('adminAuth', 'true');
+                sessionStorage.setItem('adminUser', username);
+                sessionStorage.setItem('loginTime', new Date().toISOString());
+
+                // Redirect para dashboard
+                window.location.href = 'dashboard.html';
+            } else {
+                // Login falhou
+                errorMessage.textContent = 'Usuário ou senha incorretos. Tente novamente.';
+                errorMessage.classList.add('show');
+
+                // Limpar campos
+                document.getElementById('password').value = '';
+                document.getElementById('password').focus();
+
+                // Remover mensagem após 5s
+                setTimeout(() => {
+                    errorMessage.classList.remove('show');
+                }, 5000);
+            }
+        });
+
+        // Verificar se já está autenticado
+        if (sessionStorage.getItem('adminAuth') === 'true') {
+            window.location.href = 'dashboard.html';
+        }
+    </script>
+
+</body>
+
+</html>

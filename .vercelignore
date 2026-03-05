@@ -1,0 +1,14 @@
+# Bloqueios de deploy
+.copilot/
+.github/
+.vscode/
+
+# Documentação não autorizada para publicação
+*.md
+**/*.md
+
+# Arquivos locais/sensíveis
+.env
+.env.local
+*.log
+logs/
