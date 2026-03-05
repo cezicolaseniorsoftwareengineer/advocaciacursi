@@ -1,0 +1,43 @@
+﻿<footer class="footer">
+        <div class="container">
+            <div class="footer__content">
+
+                <div class="footer__section">
+                    <h4>Dr. Estevão Cursi</h4>
+                    <p style="color: var(--text-secondary); line-height: 1.7;">
+                        Advocacia de excelência com compromisso ético e foco em resultados concretos para nossos
+                        clientes.
+                    </p>
+                </div>
+
+                <div class="footer__section">
+                    <h4>Áreas de Atuação</h4>
+                    <ul>
+                        <li><a href="execucao-civel-trabalhista.html">Execução Cível e Trabalhista</a></li>
+                        <li><a href="assessoria-empresas.html">Assessoria de Empresas</a></li>
+                        <li><a href="prisoes.html">Prisões e Defesa Criminal</a></li>
+                        <li><a href="direito-saude.html">Direito da Saúde</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer__section">
+                    <h4>Contato</h4>
+                    <ul>
+                        <li>E-mail: contato@estevaocursi.adv.br</li>
+                        <li>Telefone: (XX) XXXXX-XXXX</li>
+                        <li>Endereço: Escritório físico</li>
+                    </ul>
+                </div>
+
+            </div>
+
+            <div class="footer__bottom">
+                <p>Desenvolvido por <strong>Bio Code Technology ltda.</strong> Todos os Direitos Reservados 2026</p>
+                <p style="margin-top: var(--spacing-xs); font-size: 0.75rem; opacity: 0.3;">
+                    <a href="../admin/login.html" style="color: inherit; text-decoration: none;">•</a>
+                </p>
+            </div>
+        </div>
+    </footer>
+
+

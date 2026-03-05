@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="pt-BR">
 
 <head>
@@ -16,10 +16,15 @@
     <a href="#main" class="skip-link sr-only">Ir para o conteúdo principal</a>
 
     <header class="header">
-        <nav class="nav container">
-            <a href="../index.html" class="nav__logo">
-                <img src="../img.jpeg" alt="Logo Dr. Estevão Cursi">
-                <span>Dr. Estevão Cursi</span>
+        <nav class="nav container" aria-label="Navegação principal">
+            <a href="../index.html" class="nav__logo" aria-label="Dr. Estevão Cursi - Página inicial">
+                <img src="../img.png" alt="Logo Dr. Estevão Cursi">
+                <div style="display: flex; flex-direction: column;">
+                    <span>Dr. Estevão Cursi</span>
+                    <span
+                        style="font-size: 0.8rem; color: var(--accent-gold); font-weight: 500; font-family: var(--font-primary); letter-spacing: 0.5px;">OAB
+                        378065</span>
+                </div>
             </a>
 
             <button class="nav__toggle" aria-label="Abrir menu de navegação" aria-expanded="false">
@@ -28,13 +33,15 @@
                 <span></span>
             </button>
 
-            <ul class="nav__menu">
+            <ul class="nav__menu" role="list">
                 <li><a href="../index.html#areas" class="nav__link">Áreas de Atuação</a></li>
                 <li><a href="../index.html#sobre" class="nav__link">Sobre</a></li>
                 <li><a href="../index.html#contato" class="nav__link">Contato</a></li>
             </ul>
         </nav>
     </header>
+
+
 
     <main id="main">
         <section class="hero" style="min-height: 60vh;">
@@ -69,7 +76,6 @@
 
                 <div class="grid grid--2">
                     <div class="card">
-                        <div class="card__icon accent-blue">ET</div>
                         <h4 class="card__title">Execução Trabalhista</h4>
                         <ul style="color: var(--text-secondary); line-height: 1.8; margin-left: var(--spacing-md);">
                             <li>Recuperação de créditos trabalhistas</li>
@@ -81,7 +87,6 @@
                     </div>
 
                     <div class="card">
-                        <div class="card__icon accent-purple">EC</div>
                         <h4 class="card__title">Execução Cível</h4>
                         <ul style="color: var(--text-secondary); line-height: 1.8; margin-left: var(--spacing-md);">
                             <li>Execução de títulos executivos</li>
@@ -93,7 +98,6 @@
                     </div>
 
                     <div class="card">
-                        <div class="card__icon accent-green">CD</div>
                         <h4 class="card__title">Casos Difíceis</h4>
                         <ul style="color: var(--text-secondary); line-height: 1.8; margin-left: var(--spacing-md);">
                             <li>Avaliação técnica de casos complexos</li>
@@ -105,7 +109,6 @@
                     </div>
 
                     <div class="card">
-                        <div class="card__icon accent-gold">ID</div>
                         <h4 class="card__title">Tecnologia IDPJ</h4>
                         <ul style="color: var(--text-secondary); line-height: 1.8; margin-left: var(--spacing-md);">
                             <li>Intimações digitais automáticas</li>
@@ -142,13 +145,61 @@
 
     <footer class="footer">
         <div class="container">
+            <div class="footer__content">
+
+                <div class="footer__section">
+                    <h4>Dr. Estevão Cursi</h4>
+                    <p style="color: var(--text-secondary); line-height: 1.7;">
+                        Advocacia de excelência com compromisso ético e foco em resultados concretos para nossos
+                        clientes.
+                    </p>
+                </div>
+
+                <div class="footer__section">
+                    <h4>Áreas de Atuação</h4>
+<ul>
+    <li><a href="execucao-civel-trabalhista.html">Execução Cível e Trabalhista</a></li>
+    <li><a href="assessoria-empresas.html">Assessoria de Empresas</a></li>
+    <li><a href="prisoes.html">Prisões e Defesa Criminal</a></li>
+    <li><a href="direito-saude.html">Direito da Saúde</a></li>
+    <li><a href="../index.html#contato">Família e Sucessões</a></li>
+    <li><a href="../index.html#contato">Direito Imobiliário</a></li>
+    <li><a href="../index.html#contato">Defesa do Consumidor</a></li>
+    <li><a href="../index.html#contato">Direito Tributário</a></li>
+</ul>
+                </div>
+
+                <div class="footer__section">
+                    <h4>Contato</h4>
+                    <ul>
+                        <li>E-mail: contato@estevaocursi.adv.br</li>
+                        <li>Telefone: (XX) XXXXX-XXXX</li>
+                        <li>Endereço: Escritório físico</li>
+                    </ul>
+                </div>
+
+            </div>
+
             <div class="footer__bottom">
                 <p>Desenvolvido por <strong>Bio Code Technology ltda.</strong> Todos os Direitos Reservados 2026</p>
+                <p style="margin-top: var(--spacing-xs); font-size: 0.75rem; opacity: 0.3;">
+                    <a href="../admin/login.html" style="color: inherit; text-decoration: none;">•</a>
+                </p>
             </div>
         </div>
     </footer>
+
+
+
+
+
+
 
     <script src="../js/main.js"></script>
 </body>
 
 </html>
+
+
+
+
