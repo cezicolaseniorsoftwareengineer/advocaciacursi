@@ -5,7 +5,7 @@ Application service - Orquestra a lógica de conversação e captura de leads.
 from typing import Optional
 from sqlalchemy.orm import Session
 from backend.domain.chat import ChatSession, ContactRequest, Message
-from backend.adapters.external.openrouter import OpenRouterAdapter
+from backend.agents.dr_estevao import DrEstevaoAgent
 from backend.adapters.persistence.repository import (
     ChatSessionRepository,
     ContactRequestRepository,
@@ -18,7 +18,7 @@ class ChatService:
 
     def __init__(self, db: Session):
         self.db = db
-        self.openrouter = OpenRouterAdapter()
+        self.dr_estevao_agent = DrEstevaoAgent()
         self.session_repo = ChatSessionRepository(db)
         self.contact_repo = ContactRequestRepository(db)
         self.dr_estevao_prompt = DrEstevaoPrompt.SYSTEM_PROMPT
@@ -43,11 +43,9 @@ class ChatService:
         # Analisar intenção (detecção simples de palavras-chave)
         self._analyze_user_intent(session, user_message)
 
-        # Obter resposta do OpenRouter
-        response = self.openrouter.send_message(
-            messages=session.messages,
-            system_prompt=self.dr_estevao_prompt,
-        )
+        # Obter resposta do Dr. Estevão Agent (local)
+        response_data = self.dr_estevao_agent.process_message(user_message)
+        response = response_data.get("text") if isinstance(response_data, dict) else str(response_data)
 
         if response:
             # Adicionar resposta do assistente
