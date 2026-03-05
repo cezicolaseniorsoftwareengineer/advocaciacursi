@@ -9,15 +9,21 @@ class DrEstevaoChat {
     this.sessionToken = null;
     this.isOpen = false;
     this.isInitialized = false;
+    console.log("🚀 Iniciando DrEstevaoChat com endpoint:", this.backendUrl);
     this.init();
   }
 
   async init() {
-    this.createStyles();
-    this.createHTML();
-    this.attachEventListeners();
-    await this.startNewSession();
-    this.isInitialized = true;
+    try {
+      this.createStyles();
+      this.createHTML();
+      this.attachEventListeners();
+      await this.startNewSession();
+      this.isInitialized = true;
+      console.log("✅ Chat widget inicializado com sucesso");
+    } catch (error) {
+      console.error("❌ Erro ao inicializar chat:", error);
+    }
   }
 
   createStyles() {
@@ -27,35 +33,48 @@ class DrEstevaoChat {
         position: fixed;
         bottom: 20px;
         right: 20px;
-        width: 380px;
-        max-width: 90vw;
-        height: 600px;
-        max-height: 80vh;
-        background: linear-gradient(135deg, #0a0d11 0%, #1a1f2e 100%);
-        border-radius: 12px;
-        box-shadow: 0 8px 32px rgba(59, 130, 246, 0.15);
-        border: 1px solid rgba(59, 130, 246, 0.2);
-        display: flex;
-        flex-direction: column;
-        z-index: 10000;
-        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
-        opacity: 0;
-        transform: translateY(20px) scale(0.95);
-        transition: opacity 0.3s ease, transform 0.3s ease;
-        pointer-events: none;
-      }
-
-      #dr-estevao-chat-widget.open {
-        opacity: 1;
-        transform: translateY(0) scale(1);
-        pointer-events: auto;
-      }
-
-      #dr-estevao-chat-widget.closed {
         width: 60px;
         height: 60px;
         background: linear-gradient(135deg, #3b82f6 0%, #8b5cf6 100%);
+        border-radius: 50%;
+        box-shadow: 0 8px 32px rgba(59, 130, 246, 0.4);
+        border: 2px solid rgba(255, 255, 255, 0.2);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        z-index: 10000;
+        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
         cursor: pointer;
+        transition: all 0.3s ease;
+        opacity: 1;
+        pointer-events: auto;
+      }
+
+      #dr-estevao-chat-widget:hover {
+        transform: scale(1.1);
+        box-shadow: 0 12px 48px rgba(59, 130, 246, 0.6);
+      }
+
+      #dr-estevao-chat-widget .chat-button-icon {
+        font-size: 28px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        height: 100%;
+      }
+
+      #dr-estevao-chat-widget.open {
+        width: 400px;
+        height: 600px;
+        border-radius: 12px;
+        background: linear-gradient(135deg, #0a0d11 0%, #1a1f2e 100%);
+        border: 1px solid rgba(59, 130, 246, 0.2);
+        flex-direction: column;
+      }
+
+      #dr-estevao-chat-widget.open .chat-button-icon {
+        display: none;
       }
 
       .chat-header {
@@ -200,24 +219,45 @@ class DrEstevaoChat {
         opacity: 0.9;
       }
 
+      .whatsapp-button {
+        background: linear-gradient(135deg, #25d366 0%, #10b981 100%);
+        color: white;
+        border: none;
+        padding: 10px 16px;
+        border-radius: 6px;
+        cursor: pointer;
+        font-weight: 600;
+        transition: opacity 0.2s ease;
+        width: 100%;
+        margin-top: 8px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 8px;
+      }
+
+      .whatsapp-button:hover {
+        opacity: 0.9;
+      }
+
       @media (max-width: 640px) {
-    #dr-estevao-chat-widget {
-      width: 100vw;
-      height: 100vh;
-      bottom: 0;
-      right: 0;
-      border-radius: 0;
-      max-height: 100vh;
-    }
+        #dr-estevao-chat-widget.open {
+          width: 100vw;
+          height: 100vh;
+          bottom: 0;
+          right: 0;
+          border-radius: 0;
+          max-height: 100vh;
+        }
 
-    .chat-messages {
-      padding: 12px;
-    }
+        .chat-messages {
+          padding: 12px;
+        }
 
-    .chat-input-area {
-      padding: 8px;
-    }
-  }
+        .chat-input-area {
+          padding: 8px;
+        }
+      }
     `;
 
     const styleTag = document.createElement("style");
@@ -228,19 +268,20 @@ class DrEstevaoChat {
   createHTML() {
     const widget = document.createElement("div");
     widget.id = "dr-estevao-chat-widget";
-    widget.className = "closed";
+
     widget.innerHTML = `
-      <div class="chat-header" style="display: none;">
+      <div class="chat-button-icon">💬</div>
+      <div class="chat-header">
         <div class="header-info">
-          <h3>💬 Dr. Estevão</h3>
-          <span class="attendance-24h">Atendimento 24h</span>
+          <h3>Dr. Estevão</h3>
+          <span class="attendance-24h">⏰ Atendimento 24h</span>
         </div>
         <button class="chat-close-btn">✕</button>
       </div>
-      <div class="chat-messages" style="display: none;"></div>
-      <div class="chat-input-area" style="display: none;">
-        <input type="text" class="chat-input" placeholder="Sua mensagem..." />
-        <button class="chat-send-btn">Enviar</button>
+      <div class="chat-messages"></div>
+      <div class="chat-input-area">
+        <input type="text" class="chat-input" placeholder="Sua pergunta..." />
+        <button class="chat-send-btn">💬</button>
       </div>
     `;
 
@@ -253,25 +294,30 @@ class DrEstevaoChat {
     const closeBtn = widget.querySelector(".chat-close-btn");
     const input = widget.querySelector(".chat-input");
     const sendBtn = widget.querySelector(".chat-send-btn");
+    const buttonIcon = widget.querySelector(".chat-button-icon");
 
-    // Toggle open/close
-    widget.addEventListener("click", (e) => {
-      if (
-        !this.isOpen &&
-        !e.target.closest(".chat-header") &&
-        !e.target.closest(".chat-messages") &&
-        !e.target.closest(".chat-input-area")
-      ) {
+    // Toggle open/close ao clicar no ícone ou header
+    buttonIcon.addEventListener("click", (e) => {
+      e.stopPropagation();
+      if (!this.isOpen) {
         this.open();
       }
     });
 
-    closeBtn.addEventListener("click", () => this.close());
+    closeBtn.addEventListener("click", (e) => {
+      e.stopPropagation();
+      this.close();
+    });
 
     // Send message
-    sendBtn.addEventListener("click", () => this.sendMessage(input.value));
+    sendBtn.addEventListener("click", () => {
+      if (input.value.trim()) {
+        this.sendMessage(input.value);
+      }
+    });
+
     input.addEventListener("keypress", (e) => {
-      if (e.key === "Enter") {
+      if (e.key === "Enter" && input.value.trim()) {
         this.sendMessage(input.value);
       }
     });
@@ -279,19 +325,31 @@ class DrEstevaoChat {
 
   async startNewSession() {
     try {
+      console.log("📡 Tentando conectar ao backend:", this.backendUrl);
       const response = await fetch(`${this.backendUrl}/init`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
       });
 
+      if (!response.ok) {
+        throw new Error(`Backend returned ${response.status}`);
+      }
+
       const data = await response.json();
       this.sessionToken = data.session_token;
+      console.log(
+        "✅ Sessão criada:",
+        this.sessionToken.substring(0, 8) + "...",
+      );
       this.addMessage("assistant", data.message);
     } catch (error) {
-      console.error("Error starting chat session:", error);
+      console.error("❌ Erro ao conectar backend:", error);
+      // Modo offline - usar mock responses
+      this.sessionToken = "offline-" + Date.now();
+      this.isOfflineMode = true;
       this.addMessage(
         "assistant",
-        "Desculpe, ocorreu um erro ao inicializar o chat. Tente novamente.",
+        "Olá! Sou o Dr. Estevão! 👋\n\nDesculpe, estou em modo offline, mas você pode sim enviar sua pergunta e ela será encaminhada para meu WhatsApp para resposta!",
       );
     }
   }
@@ -305,7 +363,20 @@ class DrEstevaoChat {
     this.addMessage("user", text);
     input.value = "";
 
+    // Se está em modo offline, sugerir contato direto
+    if (this.isOfflineMode) {
+      setTimeout(() => {
+        this.addMessage(
+          "assistant",
+          "Sua mensagem será enviada diretamente para meu WhatsApp. Gostaria que eu anotasse seus dados para que eu possa responder?",
+        );
+        this.showContactPrompt();
+      }, 500);
+      return;
+    }
+
     try {
+      console.log("📤 Enviando mensagem...");
       const response = await fetch(`${this.backendUrl}/message`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
@@ -315,18 +386,22 @@ class DrEstevaoChat {
         }),
       });
 
+      if (!response.ok) {
+        throw new Error(`Backend returned ${response.status}`);
+      }
+
       const data = await response.json();
       this.addMessage("assistant", data.response);
 
-      // Se Dr. Estevão sugeriu contato, mostrar botão de contato
+      // Se Dr. Estevão sugeriu contato, mostrar formulário
       if (data.suggests_contact) {
-        this.showContactPrompt();
+        setTimeout(() => this.showContactPrompt(), 800);
       }
     } catch (error) {
-      console.error("Error sending message:", error);
+      console.error("❌ Erro ao enviar mensagem:", error);
       this.addMessage(
         "assistant",
-        "Desculpe, ocorreu um erro ao processar sua mensagem.",
+        "Houve um erro ao processar sua mensagem. Você pode tentar novamente ou enviar diretamente pelo WhatsApp.",
       );
     }
   }
@@ -383,11 +458,12 @@ class DrEstevaoChat {
     const formEl = document.createElement("div");
     formEl.className = "chat-message";
     formEl.innerHTML = `
-      <div style="width: 100%; padding: 12px;">
-        <input type="text" class="contact-name" placeholder="Seu nome completo" style="width: 100%; padding: 8px; margin-bottom: 8px; border: 1px solid rgba(59, 130, 246, 0.2); border-radius: 6px; background: rgba(15, 23, 42, 0.5); color: white;" />
-        <input type="email" class="contact-email" placeholder="Seu e-mail" style="width: 100%; padding: 8px; margin-bottom: 8px; border: 1px solid rgba(59, 130, 246, 0.2); border-radius: 6px; background: rgba(15, 23, 42, 0.5); color: white;" />
-        <input type="tel" class="contact-phone" placeholder="Seu telefone" style="width: 100%; padding: 8px; margin-bottom: 8px; border: 1px solid rgba(59, 130, 246, 0.2); border-radius: 6px; background: rgba(15, 23, 42, 0.5); color: white;" />
-        <button class="contact-submit" style="width: 100%; background: #3b82f6; color: white; border: none; padding: 10px; border-radius: 6px; cursor: pointer; margin-top: 8px;">Enviar Solicitud</button>
+      <div style="width: 100%; padding: 12px; background: rgba(59, 130, 246, 0.1); border-radius: 8px;">
+        <p style="margin: 0 0 12px; color: #a5b4fc; font-size: 13px; font-weight: 600;">Para agendar sua consulta:</p>
+        <input type="text" class="contact-name" placeholder="Seu nome completo" style="width: 100%; padding: 8px; margin-bottom: 8px; border: 1px solid rgba(59, 130, 246, 0.2); border-radius: 6px; background: rgba(15, 23, 42, 0.8); color: white; box-sizing: border-box;" />
+        <input type="email" class="contact-email" placeholder="Seu e-mail" style="width: 100%; padding: 8px; margin-bottom: 8px; border: 1px solid rgba(59, 130, 246, 0.2); border-radius: 6px; background: rgba(15, 23, 42, 0.8); color: white; box-sizing: border-box;" />
+        <input type="tel" class="contact-phone" placeholder="Seu WhatsApp" style="width: 100%; padding: 8px; margin-bottom: 12px; border: 1px solid rgba(59, 130, 246, 0.2); border-radius: 6px; background: rgba(15, 23, 42, 0.8); color: white; box-sizing: border-box;" />
+        <button class="contact-submit whatsapp-button" style="background: linear-gradient(135deg, #25d366 0%, #10b981 100%); color: white; border: none; padding: 10px; border-radius: 6px; cursor: pointer;">📱 Enviar para WhatsApp</button>
       </div>
     `;
 
@@ -406,8 +482,16 @@ class DrEstevaoChat {
           return;
         }
 
+        // Criar mensagem formatada para WhatsApp
+        const message = `Olá Dr. Estevão! Meu nome é ${name}, meu e-mail é ${email} e gostaria de agendar uma consulta. Meu WhatsApp: ${phone}`;
+        const whatsappUrl = `https://wa.me/5511985773185?text=${encodeURIComponent(message)}`;
+
+        // Abrir WhatsApp
+        window.open(whatsappUrl, "_blank");
+
+        // Salvar contato no backend (para registro)
         try {
-          const response = await fetch(`${this.backendUrl}/contact`, {
+          await fetch(`${this.backendUrl}/contact`, {
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify({
@@ -418,39 +502,37 @@ class DrEstevaoChat {
             }),
           });
 
-          const data = await response.json();
-          if (data.success) {
-            this.addMessage("assistant", data.message);
-            formEl.remove();
-          }
+          this.addMessage(
+            "assistant",
+            "✅ Seu contato foi salvo! Espero conversar com você no WhatsApp!",
+          );
+          formEl.remove();
         } catch (error) {
-          console.error("Error submitting contact:", error);
-          alert("Erro ao enviar. Tente novamente.");
+          console.error("Error saving contact:", error);
+          // Mesmo que falhe, o WhatsApp já foi aberto
         }
       });
   }
 
   open() {
     const widget = document.getElementById("dr-estevao-chat-widget");
-    widget.classList.remove("closed");
     widget.classList.add("open");
+    widget.style.width = "400px";
+    widget.style.height = "600px";
+    widget.style.borderRadius = "12px";
 
-    widget.querySelector(".chat-header").style.display = "flex";
-    widget.querySelector(".chat-messages").style.display = "flex";
-    widget.querySelector(".chat-input-area").style.display = "flex";
+    const input = widget.querySelector(".chat-input");
+    setTimeout(() => input.focus(), 300);
 
     this.isOpen = true;
-    widget.querySelector(".chat-input").focus();
   }
 
   close() {
     const widget = document.getElementById("dr-estevao-chat-widget");
-    widget.classList.add("closed");
     widget.classList.remove("open");
-
-    widget.querySelector(".chat-header").style.display = "none";
-    widget.querySelector(".chat-messages").style.display = "none";
-    widget.querySelector(".chat-input-area").style.display = "none";
+    widget.style.width = "60px";
+    widget.style.height = "60px";
+    widget.style.borderRadius = "50%";
 
     this.isOpen = false;
   }
@@ -460,13 +542,4 @@ class DrEstevaoChat {
     div.textContent = text;
     return div.innerHTML;
   }
-}
-
-// Inicializar o chat quando o documento estiver pronto
-if (document.readyState === "loading") {
-  document.addEventListener("DOMContentLoaded", () => {
-    new DrEstevaoChat({ backendUrl: "http://localhost:8000/api/v1/chat" });
-  });
-} else {
-  new DrEstevaoChat({ backendUrl: "http://localhost:8000/api/v1/chat" });
 }

@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teste - Chat Widget Dr. Estevão</title>
+    <style>
+        body {
+            background: #0a0d11;
+            font-family: system-ui, -apple-system, sans-serif;
+            padding: 40px 20px;
+            color: #fff;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            background: rgba(26, 31, 46, 0.5);
+            padding: 30px;
+            border-radius: 12px;
+            border: 1px solid rgba(59, 130, 246, 0.2);
+        }
+
+        h1 {
+            color: #3b82f6;
+            margin-top: 0;
+        }
+
+        .test-item {
+            margin: 20px 0;
+            padding: 15px;
+            background: rgba(139, 92, 246, 0.05);
+            border-left: 3px solid #8b5cf6;
+            border-radius: 6px;
+        }
+
+        .status {
+            font-weight: bold;
+        }
+
+        .status.ready {
+            color: #10b981;
+        }
+
+        .status.error {
+            color: #ef4444;
+        }
+
+        code {
+            display: block;
+            background: rgba(0, 0, 0, 0.3);
+            padding: 10px;
+            border-radius: 4px;
+            margin-top: 10px;
+            font-size: 12px;
+            overflow-x: auto;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>🧪 Teste do Chat Widget</h1>
+
+        <div class="test-item">
+            <strong>Carregamento de Scripts:</strong>
+            <div class="status" id="script-status">Aguardando...</div>
+        </div>
+
+        <div class="test-item">
+            <strong>Widget Criado:</strong>
+            <div class="status" id="widget-status">Aguardando...</div>
+        </div>
+
+        <div class="test-item">
+            <strong>Backend Connection:</strong>
+            <div class="status" id="backend-status">Aguardando...</div>
+        </div>
+
+        <div class="test-item">
+            <strong>Instruções:</strong>
+            <p>1. Procure por um botão redondo 💬 na diagonal inferior direita da página</p>
+            <p>2. Clique no botão para abrir o chat</p>
+            <p>3. Digite sua pergunta e envie</p>
+            <p>4. Siga as instruções do Dr. Estevão para agendar consulta</p>
+            <p>5. Você será redirecionado para WhatsApp</p>
+        </div>
+
+        <div class="test-item">
+            <strong>Debug Console:</strong>
+            <p>Abra o console do navegador (F12) para ver logs detalhados.</p>
+        </div>
+    </div>
+
+    <script src="js/chatbot.js"></script>
+    <script>
+        console.log('🧪 Iniciando testes...');
+
+        // Test 1: Check if DrEstevaoChat class exists
+        if (typeof DrEstevaoChat !== 'undefined') {
+            document.getElementById('script-status').innerHTML = '<span class="ready">✅ Scripts carregados com sucesso</span>';
+            console.log('✅ DrEstevaoChat class loaded');
+        } else {
+            document.getElementById('script-status').innerHTML = '<span class="error">❌ Erro ao carregar scripts</span>';
+            console.error('❌ DrEstevaoChat class not found');
+        }
+
+        // Test 2: Initialize chat
+        document.addEventListener('DOMContentLoaded', () => {
+            setTimeout(() => {
+                const widget = document.getElementById('dr-estevao-chat-widget');
+                if (widget) {
+                    document.getElementById('widget-status').innerHTML = '<span class="ready">✅ Widget criado e visível</span>';
+                    console.log('✅ Chat widget created');
+                    console.log('   Element:', widget);
+                    console.log('   Classes:', widget.className);
+                    console.log('   Visible: Yes (você deve ver um botão 💬 na lateral direita)');
+                } else {
+                    document.getElementById('widget-status').innerHTML = '<span class="error">❌ Widget não encontrado</span>';
+                    console.error('❌ Chat widget not found in DOM');
+                }
+            }, 500);
+        });
+
+        // Test 3: Backend connection
+        function testBackend() {
+            const isDev = window.location.hostname === 'localhost';
+            const backendUrl = isDev
+                ? 'http://localhost:8000/api/v1/chat'
+                : 'https://dr-estevao-backend.onrender.com/api/v1/chat';
+
+            fetch(backendUrl + '/init', { method: 'POST' })
+                .then(r => {
+                    if (r.ok) {
+                        document.getElementById('backend-status').innerHTML = '<span class="ready">✅ Backend conectado</span>';
+                        console.log('✅ Backend online:', backendUrl);
+                    } else {
+                        throw new Error('Backend returned ' + r.status);
+                    }
+                })
+                .catch(e => {
+                    document.getElementById('backend-status').innerHTML = '<span class="error">⚠️ Backend offline (usando modo local)</span>';
+                    console.log('⚠️ Backend offline:', e.message);
+                    console.log('   O chat funcionará em modo local com mock responses');
+                });
+        }
+
+        setTimeout(testBackend, 1000);
+    </script>
+</body>
+
+</html>

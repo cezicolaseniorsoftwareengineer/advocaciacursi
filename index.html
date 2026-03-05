@@ -502,45 +502,14 @@
                 ? 'http://localhost:8000/api/v1/chat'
                 : 'https://dr-estevao-backend.onrender.com/api/v1/chat';
 
-            console.log('Iniciando Dr. Estevao Chat...');
-            console.log('Ambiente:', isDev ? 'Desenvolvimento' : 'Produção');
-            console.log('Backend URL:', backendUrl);
+            console.log('🚀 Inicializando Dr. Estevão ChatBot');
+            console.log('   Ambiente:', isDev ? '💻 Desenvolvimento' : '🌐 Produção');
+            console.log('   Backend:', backendUrl);
 
-            // Inicializar widget de chat
+            // Inicializar widget de chat (única inicialização!)
             window.drEstevaoChat = new DrEstevaoChat({ backendUrl: backendUrl });
 
-            // Teste de integração (apenas em desenvolvimento)
-            if (isDev) {
-                console.log('\n🔍 TESTE DE INTEGRAÇÃO AUTOMÁTICO');
-                setTimeout(async () => {
-                    try {
-                        // Test 1: Health
-                        const health = await fetch(backendUrl.replace('/chat', '/health'));
-                        const healthData = await health.json();
-                        console.log('✅ Health:', healthData.status);
-
-                        // Test 2: Init
-                        const init = await fetch(backendUrl + '/init', { method: 'POST' });
-                        const initData = await init.json();
-                        console.log('✅ Init:', initData.session_token.substring(0, 8) + '...');
-
-                        // Test 3: Message
-                        const msg = await fetch(backendUrl + '/message', {
-                            method: 'POST',
-                            headers: { 'Content-Type': 'application/json' },
-                            body: JSON.stringify({
-                                session_token: initData.session_token,
-                                message: "Teste de integração do chat"
-                            })
-                        });
-                        const msgData = await msg.json();
-                        console.log('✅ Message:', msgData.response.substring(0, 40) + '...');
-                        console.log('\n🎉 SISTEMA PRONTO PARA PRODUÇÃO\n');
-                    } catch (e) {
-                        console.error('❌ Erro no teste:', e.message);
-                    }
-                }, 1000);
-            }
+            console.log('✅ Chat widget pronto! Procure por um botão de mensagem 💬 na lateral direita.');
         });
     </script>
 </body>
