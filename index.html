@@ -494,7 +494,22 @@
     <!-- JavaScript -->
     <script src="js/main.js"></script>
     <script src="js/chatbot.js"></script>
+    <script>
+        // Detectar ambiente e inicializar chat
+        document.addEventListener('DOMContentLoaded', function () {
+            const isDev = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1';
+            const backendUrl = isDev
+                ? 'http://localhost:8000/api/v1/chat'
+                : 'https://dr-estevao-backend.onrender.com/api/v1/chat';
 
+            console.log('Iniciando Dr. Estevao Chat...');
+            console.log('Ambiente:', isDev ? 'Desenvolvimento' : 'Produção');
+            console.log('Backend URL:', backendUrl);
+
+            // Inicializar widget de chat
+            window.drEstevaoChat = new DrEstevaoChat({ backendUrl: backendUrl });
+        });
+    </script>
 </body>
 
 </html>
