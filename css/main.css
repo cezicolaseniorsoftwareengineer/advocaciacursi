@@ -297,6 +297,12 @@ a:hover {
   position: relative;
   overflow: hidden;
   border-bottom: 1px solid rgba(199, 168, 107, 0.2);
+  background:
+    linear-gradient(rgba(3, 16, 22, 0.85), rgba(3, 16, 22, 0.85)),
+    url("../img_jus.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
 }
 
 .hero::before {
@@ -344,6 +350,7 @@ a:hover {
   margin-bottom: var(--spacing-md);
   line-height: 1.1;
   animation: fadeInUp 0.8s ease;
+  text-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
 }
 
 .hero__subtitle {
@@ -354,6 +361,7 @@ a:hover {
   margin-right: auto;
   margin-bottom: var(--spacing-xl);
   animation: fadeInUp 1s ease;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.6);
 }
 
 .hero__cta {
