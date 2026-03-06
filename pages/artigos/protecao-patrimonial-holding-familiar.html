@@ -1,9 +1,11 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
-    <meta name="description" content="Entenda como funciona a proteção patrimonial via holding familiar, suas vantagens e os limites legais para não confundir planejamento com fraude.">
+    <meta name="description"
+        content="Entenda como funciona a proteção patrimonial via holding familiar, suas vantagens e os limites legais para não confundir planejamento com fraude.">
     <meta name="author" content="Dr. Estevão Cursi">
     <meta name="robots" content="index, follow">
     <title>Proteção Patrimonial e Holding Familiar | Dr. Estevão Cursi - Advocacia</title>
@@ -11,38 +13,43 @@
     <link rel="icon" type="image/png" href="../../img.png">
     <style>
         .article-hero {
-            background: linear-gradient(135deg, rgba(10,13,17,0.95) 60%, rgba(59,130,246,0.15) 100%),
-                        url('https://loremflickr.com/1200/600/law,justice?lock=16') center/cover no-repeat;
+            background: linear-gradient(135deg, rgba(10, 13, 17, 0.95) 60%, rgba(59, 130, 246, 0.15) 100%),
+                url('https://picsum.photos/seed/cursi-artigo-holding-familiar/1200/600') center/cover no-repeat;
             padding: 180px 0 80px;
-            border-bottom: 1px solid rgba(255,255,255,0.07);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.07);
         }
+
         .article-hero__badge {
             display: inline-block;
             font-size: 0.72rem;
             text-transform: uppercase;
             letter-spacing: 2px;
             color: var(--accent-blue);
-            background: rgba(59,130,246,0.1);
-            border: 1px solid rgba(59,130,246,0.3);
+            background: rgba(59, 130, 246, 0.1);
+            border: 1px solid rgba(59, 130, 246, 0.3);
             padding: 0.3rem 0.9rem;
             border-radius: 20px;
             margin-bottom: 1.2rem;
         }
+
         .article-hero__title {
             font-size: clamp(1.8rem, 4vw, 2.8rem);
             font-weight: 800;
             line-height: 1.25;
             margin-bottom: 1rem;
         }
+
         .article-hero__meta {
             font-size: 0.88rem;
             color: var(--text-secondary);
         }
+
         .article-body {
             max-width: 780px;
             margin: 0 auto;
             padding: 3rem var(--spacing-md);
         }
+
         .article-body h2 {
             font-size: 1.45rem;
             color: var(--text-primary);
@@ -50,46 +57,55 @@
             border-left: 3px solid var(--accent-blue);
             padding-left: 1rem;
         }
+
         .article-body h3 {
             font-size: 1.15rem;
             color: var(--accent-blue);
             margin: 1.8rem 0 0.8rem;
         }
+
         .article-body p {
             font-size: 1.05rem;
             line-height: 1.85;
             color: var(--text-secondary);
             margin-bottom: 1.2rem;
         }
-        .article-body ul, .article-body ol {
+
+        .article-body ul,
+        .article-body ol {
             padding-left: 1.5rem;
             margin-bottom: 1.2rem;
         }
+
         .article-body li {
             font-size: 1.02rem;
             line-height: 1.75;
             color: var(--text-secondary);
             margin-bottom: 0.4rem;
         }
+
         .article-body .highlight-box {
-            background: rgba(59,130,246,0.07);
+            background: rgba(59, 130, 246, 0.07);
             border-left: 4px solid var(--accent-blue);
             padding: 1.2rem 1.5rem;
             border-radius: 0 8px 8px 0;
             margin: 1.5rem 0;
         }
+
         .article-body .highlight-box p {
             margin-bottom: 0;
             color: var(--text-primary);
         }
+
         .article-author-box {
-            border-top: 1px solid rgba(255,255,255,0.08);
+            border-top: 1px solid rgba(255, 255, 255, 0.08);
             padding-top: 2rem;
             margin-top: 3rem;
             display: flex;
             align-items: center;
             gap: 1.2rem;
         }
+
         .article-author-box img {
             width: 64px;
             height: 64px;
@@ -97,32 +113,38 @@
             border: 2px solid var(--accent-blue);
             object-fit: cover;
         }
+
         .article-author-box .author-info h4 {
             font-size: 1rem;
             color: var(--accent-blue);
             margin-bottom: 0.2rem;
         }
+
         .article-author-box .author-info span {
             font-size: 0.82rem;
             color: var(--text-secondary);
         }
+
         .article-cta-bar {
-            background: rgba(59,130,246,0.06);
-            border: 1px solid rgba(59,130,246,0.15);
+            background: rgba(59, 130, 246, 0.06);
+            border: 1px solid rgba(59, 130, 246, 0.15);
             border-radius: var(--radius-md);
             padding: 2rem;
             text-align: center;
             margin: 3rem 0;
         }
+
         .article-cta-bar h3 {
             color: var(--text-primary);
             font-size: 1.25rem;
             margin-bottom: 0.6rem;
         }
+
         .article-cta-bar p {
             font-size: 0.95rem;
             margin-bottom: 1.5rem;
         }
+
         .article-nav-buttons {
             display: flex;
             gap: 1rem;
@@ -130,10 +152,11 @@
             flex-wrap: wrap;
             margin-top: 1rem;
         }
+
         .btn--back {
             background: transparent;
             color: var(--text-secondary);
-            border: 1px solid rgba(255,255,255,0.15);
+            border: 1px solid rgba(255, 255, 255, 0.15);
             padding: 0.65rem 1.5rem;
             border-radius: var(--radius-sm);
             font-size: 0.9rem;
@@ -143,12 +166,14 @@
             align-items: center;
             gap: 0.5rem;
         }
+
         .btn--back:hover {
             border-color: var(--accent-blue);
             color: var(--accent-blue);
         }
     </style>
 </head>
+
 <body>
     <a href="#main" class="skip-link sr-only">Ir para o conteúdo principal</a>
 
@@ -174,7 +199,8 @@
             <div class="container">
                 <span class="article-hero__badge">Assessoria Empresarial</span>
                 <h1 class="article-hero__title">Proteção Patrimonial e Holding Familiar</h1>
-                <p class="article-hero__meta">Por <strong style="color:var(--accent-blue);">Dr. Estevão Cursi</strong> &nbsp;·&nbsp; OAB 378065 &nbsp;·&nbsp; Publicado em março de 2026</p>
+                <p class="article-hero__meta">Por <strong style="color:var(--accent-blue);">Dr. Estevão Cursi</strong>
+                    &nbsp;·&nbsp; OAB 378065 &nbsp;·&nbsp; Publicado em março de 2026</p>
             </div>
         </div>
 
@@ -183,41 +209,60 @@
                 <a href="../../blog.html" class="btn--back">&#8592; Voltar para os Artigos</a>
             </div>
 
-            
-<p>Proteger o patrimônio construído ao longo de uma vida é uma preocupação natural e legítima. Quando feita dentro dos parâmetros legais, a proteção patrimonial é uma estratégia plenamente válida — e a holding familiar é uma das ferramentas mais eficazes para isso.</p>
 
-<h2>O que é uma Holding Familiar?</h2>
-<p>Uma holding familiar é uma empresa (geralmente do tipo Sociedade Limitada ou Sociedade Anônima) criada para <strong>concentrar e administrar o patrimônio de uma família</strong> — imóveis, participações em outras empresas, aplicações financeiras, etc.</p>
-<p>Os bens são integralizados ao capital social da holding, e os membros da família recebem cotas ou ações em proporção ao que foi aportado.</p>
+            <p>Proteger o patrimônio construído ao longo de uma vida é uma preocupação natural e legítima. Quando feita
+                dentro dos parâmetros legais, a proteção patrimonial é uma estratégia plenamente válida — e a holding
+                familiar é uma das ferramentas mais eficazes para isso.</p>
 
-<div class="highlight-box">
-    <p><strong>Blindagem não é fraude:</strong> A holding familiar é 100% legal quando constituída antes de qualquer evento danoso (dívidas, processos). Criá-la após ter dívidas pode ser enquadrado como fraude à execução.</p>
-</div>
+            <h2>O que é uma Holding Familiar?</h2>
+            <p>Uma holding familiar é uma empresa (geralmente do tipo Sociedade Limitada ou Sociedade Anônima) criada
+                para <strong>concentrar e administrar o patrimônio de uma família</strong> — imóveis, participações em
+                outras empresas, aplicações financeiras, etc.</p>
+            <p>Os bens são integralizados ao capital social da holding, e os membros da família recebem cotas ou ações
+                em proporção ao que foi aportado.</p>
 
-<h2>Vantagens da Holding Familiar</h2>
-<h3>1. Proteção patrimonial</h3>
-<p>Em casos de processos trabalhistas, cíveis ou fiscais contra a pessoa física dos sócios, os bens dentro da holding geralmente ficam protegidos — pois pertencem à pessoa jurídica, não ao indivíduo.</p>
+            <div class="highlight-box">
+                <p><strong>Blindagem não é fraude:</strong> A holding familiar é 100% legal quando constituída antes de
+                    qualquer evento danoso (dívidas, processos). Criá-la após ter dívidas pode ser enquadrado como
+                    fraude à execução.</p>
+            </div>
 
-<h3>2. Planejamento sucessório simplificado</h3>
-<p>A transmissão de cotas da holding é muito mais simples e barata do que um inventário convencional de imóveis. O ITCMD (imposto sobre doação/herança) incide sobre as cotas, e a partilha pode ser feita em vida com muito mais controle.</p>
+            <h2>Vantagens da Holding Familiar</h2>
+            <h3>1. Proteção patrimonial</h3>
+            <p>Em casos de processos trabalhistas, cíveis ou fiscais contra a pessoa física dos sócios, os bens dentro
+                da holding geralmente ficam protegidos — pois pertencem à pessoa jurídica, não ao indivíduo.</p>
 
-<h3>3. Cláusulas restritivas protetoras</h3>
-<p>Na doação das cotas aos herdeiros, o doador pode inserir cláusulas de <strong>inalienabilidade</strong> (proíbe venda das cotas), <strong>impenhorabilidade</strong> (protege de dívidas dos herdeiros) e <strong>incomunicabilidade</strong> (as cotas não entram na comunhão com cônjuge em caso de divórcio).</p>
+            <h3>2. Planejamento sucessório simplificado</h3>
+            <p>A transmissão de cotas da holding é muito mais simples e barata do que um inventário convencional de
+                imóveis. O ITCMD (imposto sobre doação/herança) incide sobre as cotas, e a partilha pode ser feita em
+                vida com muito mais controle.</p>
 
-<h3>4. Vantagens tributárias</h3>
-<p>Dependendo do regime tributário escolhido (Lucro Presumido), empresas holding podem recolher menos impostos sobre rendimentos de aluguel, por exemplo, comparado à tributação de pessoa física — que pode chegar a 27,5% no IR.</p>
+            <h3>3. Cláusulas restritivas protetoras</h3>
+            <p>Na doação das cotas aos herdeiros, o doador pode inserir cláusulas de <strong>inalienabilidade</strong>
+                (proíbe venda das cotas), <strong>impenhorabilidade</strong> (protege de dívidas dos herdeiros) e
+                <strong>incomunicabilidade</strong> (as cotas não entram na comunhão com cônjuge em caso de divórcio).
+            </p>
 
-<h2>Limites legais e riscos</h2>
-<p>A holding familiar não é uma solução perfeita. Existem situações em que os bens da holding podem ser atingidos por credores:</p>
-<ul>
-    <li>Se a holding for criada após o surgimento da dívida (fraude à execução);</li>
-    <li>Se houver confusão patrimonial (mistura de contas pessoais com as da empresa);</li>
-    <li>Se a desconsideração da personalidade jurídica for deferida em processo judicial;</li>
-    <li>Se as cotas forem penhoradas diretamente em execução contra o sócio.</li>
-</ul>
+            <h3>4. Vantagens tributárias</h3>
+            <p>Dependendo do regime tributário escolhido (Lucro Presumido), empresas holding podem recolher menos
+                impostos sobre rendimentos de aluguel, por exemplo, comparado à tributação de pessoa física — que pode
+                chegar a 27,5% no IR.</p>
 
-<h2>Como dar o primeiro passo?</h2>
-<p>Antes de constituir uma holding, é necessário um estudo patrimonial completo: levantamento de todos os bens, análise de passivos existentes, escolha do regime tributário mais vantajoso e estruturação das cláusulas societárias e sucessórias. Esse trabalho deve ser feito por um advogado com experiência societária e tributária para garantir segurança e eficácia.</p>
+            <h2>Limites legais e riscos</h2>
+            <p>A holding familiar não é uma solução perfeita. Existem situações em que os bens da holding podem ser
+                atingidos por credores:</p>
+            <ul>
+                <li>Se a holding for criada após o surgimento da dívida (fraude à execução);</li>
+                <li>Se houver confusão patrimonial (mistura de contas pessoais com as da empresa);</li>
+                <li>Se a desconsideração da personalidade jurídica for deferida em processo judicial;</li>
+                <li>Se as cotas forem penhoradas diretamente em execução contra o sócio.</li>
+            </ul>
+
+            <h2>Como dar o primeiro passo?</h2>
+            <p>Antes de constituir uma holding, é necessário um estudo patrimonial completo: levantamento de todos os
+                bens, análise de passivos existentes, escolha do regime tributário mais vantajoso e estruturação das
+                cláusulas societárias e sucessórias. Esse trabalho deve ser feito por um advogado com experiência
+                societária e tributária para garantir segurança e eficácia.</p>
 
 
             <div class="article-author-box">
@@ -230,7 +275,8 @@
 
             <div class="article-cta-bar">
                 <h3>Ficou com dúvidas? Fale diretamente com o Dr. Estevão Cursi.</h3>
-                <p>Atendimento personalizado, sem custo inicial. Explique seu caso e receba uma orientação especializada.</p>
+                <p>Atendimento personalizado, sem custo inicial. Explique seu caso e receba uma orientação
+                    especializada.</p>
                 <div class="article-nav-buttons">
                     <a href="../../blog.html" class="btn--back">&#8592; Voltar para os Artigos</a>
                     <a href="../../index.html#contato" class="btn btn--primary">Falar com o Advogado</a>
@@ -244,7 +290,8 @@
             <div class="footer__content">
                 <div class="footer__section">
                     <h4>Dr. Estevão Cursi</h4>
-                    <p style="color:var(--text-secondary);line-height:1.7;">Advocacia de excelência com compromisso ético e foco em resultados concretos.</p>
+                    <p style="color:var(--text-secondary);line-height:1.7;">Advocacia de excelência com compromisso
+                        ético e foco em resultados concretos.</p>
                 </div>
                 <div class="footer__section">
                     <h4>Áreas de Atuação</h4>
@@ -273,4 +320,5 @@
 
     <script src="../../js/main.js"></script>
 </body>
+
 </html>

@@ -1,9 +1,11 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
-    <meta name="description" content="Entenda os direitos do comprador em casos de distrato imobiliário, atraso de obra e quando a construtora pode ser responsabilizada.">
+    <meta name="description"
+        content="Entenda os direitos do comprador em casos de distrato imobiliário, atraso de obra e quando a construtora pode ser responsabilizada.">
     <meta name="author" content="Dr. Estevão Cursi">
     <meta name="robots" content="index, follow">
     <title>Distrato Imobiliário: Como Receber Seu Dinheiro de Volta | Dr. Estevão Cursi - Advocacia</title>
@@ -11,38 +13,43 @@
     <link rel="icon" type="image/png" href="../../img.png">
     <style>
         .article-hero {
-            background: linear-gradient(135deg, rgba(10,13,17,0.95) 60%, rgba(59,130,246,0.15) 100%),
-                        url('https://loremflickr.com/1200/600/law,justice?lock=22') center/cover no-repeat;
+            background: linear-gradient(135deg, rgba(10, 13, 17, 0.95) 60%, rgba(59, 130, 246, 0.15) 100%),
+                url('https://picsum.photos/seed/cursi-artigo-distrato-imobiliario/1200/600') center/cover no-repeat;
             padding: 180px 0 80px;
-            border-bottom: 1px solid rgba(255,255,255,0.07);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.07);
         }
+
         .article-hero__badge {
             display: inline-block;
             font-size: 0.72rem;
             text-transform: uppercase;
             letter-spacing: 2px;
             color: var(--accent-blue);
-            background: rgba(59,130,246,0.1);
-            border: 1px solid rgba(59,130,246,0.3);
+            background: rgba(59, 130, 246, 0.1);
+            border: 1px solid rgba(59, 130, 246, 0.3);
             padding: 0.3rem 0.9rem;
             border-radius: 20px;
             margin-bottom: 1.2rem;
         }
+
         .article-hero__title {
             font-size: clamp(1.8rem, 4vw, 2.8rem);
             font-weight: 800;
             line-height: 1.25;
             margin-bottom: 1rem;
         }
+
         .article-hero__meta {
             font-size: 0.88rem;
             color: var(--text-secondary);
         }
+
         .article-body {
             max-width: 780px;
             margin: 0 auto;
             padding: 3rem var(--spacing-md);
         }
+
         .article-body h2 {
             font-size: 1.45rem;
             color: var(--text-primary);
@@ -50,46 +57,55 @@
             border-left: 3px solid var(--accent-blue);
             padding-left: 1rem;
         }
+
         .article-body h3 {
             font-size: 1.15rem;
             color: var(--accent-blue);
             margin: 1.8rem 0 0.8rem;
         }
+
         .article-body p {
             font-size: 1.05rem;
             line-height: 1.85;
             color: var(--text-secondary);
             margin-bottom: 1.2rem;
         }
-        .article-body ul, .article-body ol {
+
+        .article-body ul,
+        .article-body ol {
             padding-left: 1.5rem;
             margin-bottom: 1.2rem;
         }
+
         .article-body li {
             font-size: 1.02rem;
             line-height: 1.75;
             color: var(--text-secondary);
             margin-bottom: 0.4rem;
         }
+
         .article-body .highlight-box {
-            background: rgba(59,130,246,0.07);
+            background: rgba(59, 130, 246, 0.07);
             border-left: 4px solid var(--accent-blue);
             padding: 1.2rem 1.5rem;
             border-radius: 0 8px 8px 0;
             margin: 1.5rem 0;
         }
+
         .article-body .highlight-box p {
             margin-bottom: 0;
             color: var(--text-primary);
         }
+
         .article-author-box {
-            border-top: 1px solid rgba(255,255,255,0.08);
+            border-top: 1px solid rgba(255, 255, 255, 0.08);
             padding-top: 2rem;
             margin-top: 3rem;
             display: flex;
             align-items: center;
             gap: 1.2rem;
         }
+
         .article-author-box img {
             width: 64px;
             height: 64px;
@@ -97,32 +113,38 @@
             border: 2px solid var(--accent-blue);
             object-fit: cover;
         }
+
         .article-author-box .author-info h4 {
             font-size: 1rem;
             color: var(--accent-blue);
             margin-bottom: 0.2rem;
         }
+
         .article-author-box .author-info span {
             font-size: 0.82rem;
             color: var(--text-secondary);
         }
+
         .article-cta-bar {
-            background: rgba(59,130,246,0.06);
-            border: 1px solid rgba(59,130,246,0.15);
+            background: rgba(59, 130, 246, 0.06);
+            border: 1px solid rgba(59, 130, 246, 0.15);
             border-radius: var(--radius-md);
             padding: 2rem;
             text-align: center;
             margin: 3rem 0;
         }
+
         .article-cta-bar h3 {
             color: var(--text-primary);
             font-size: 1.25rem;
             margin-bottom: 0.6rem;
         }
+
         .article-cta-bar p {
             font-size: 0.95rem;
             margin-bottom: 1.5rem;
         }
+
         .article-nav-buttons {
             display: flex;
             gap: 1rem;
@@ -130,10 +152,11 @@
             flex-wrap: wrap;
             margin-top: 1rem;
         }
+
         .btn--back {
             background: transparent;
             color: var(--text-secondary);
-            border: 1px solid rgba(255,255,255,0.15);
+            border: 1px solid rgba(255, 255, 255, 0.15);
             padding: 0.65rem 1.5rem;
             border-radius: var(--radius-sm);
             font-size: 0.9rem;
@@ -143,12 +166,14 @@
             align-items: center;
             gap: 0.5rem;
         }
+
         .btn--back:hover {
             border-color: var(--accent-blue);
             color: var(--accent-blue);
         }
     </style>
 </head>
+
 <body>
     <a href="#main" class="skip-link sr-only">Ir para o conteúdo principal</a>
 
@@ -174,7 +199,8 @@
             <div class="container">
                 <span class="article-hero__badge">Direito Imobiliário</span>
                 <h1 class="article-hero__title">Distrato Imobiliário: Como Receber Seu Dinheiro de Volta</h1>
-                <p class="article-hero__meta">Por <strong style="color:var(--accent-blue);">Dr. Estevão Cursi</strong> &nbsp;·&nbsp; OAB 378065 &nbsp;·&nbsp; Publicado em março de 2026</p>
+                <p class="article-hero__meta">Por <strong style="color:var(--accent-blue);">Dr. Estevão Cursi</strong>
+                    &nbsp;·&nbsp; OAB 378065 &nbsp;·&nbsp; Publicado em março de 2026</p>
             </div>
         </div>
 
@@ -183,44 +209,60 @@
                 <a href="../../blog.html" class="btn--back">&#8592; Voltar para os Artigos</a>
             </div>
 
-            
-<p>Comprar um imóvel na planta é uma das decisões financeiras mais importantes da vida. Quando a construtora atrasa a entrega ou quando o comprador precisa desistir, as regras de devolução do dinheiro são determinadas por lei — e muitas vezes as construtoras tentam aplicar condições mais desfavoráveis do que as previstas.</p>
 
-<h2>O que é distrato imobiliário?</h2>
-<p>Distrato é a dissolução de um contrato de compra e venda de imóvel por vontade de uma ou ambas as partes antes de sua conclusão. A Lei 13.786/2018, conhecida como "Lei do Distrato", regulamentou as regras para essa situação.</p>
+            <p>Comprar um imóvel na planta é uma das decisões financeiras mais importantes da vida. Quando a construtora
+                atrasa a entrega ou quando o comprador precisa desistir, as regras de devolução do dinheiro são
+                determinadas por lei — e muitas vezes as construtoras tentam aplicar condições mais desfavoráveis do que
+                as previstas.</p>
 
-<h2>Distrato por iniciativa do comprador</h2>
-<p>Se você desistir do imóvel, a lei prevê que a construtora pode reter parte do valor pago para cobrir despesas administrativas. Os percentuais variam:</p>
-<ul>
-    <li><strong>Até 25%</strong> das parcelas pagas em empreendimentos incorporados (financiados pela própria incorporadora), acrescidos da corretagem;</li>
-    <li><strong>Até 50%</strong> se o imóvel integrar patrimônio de afetação (mecanismo específico de proteção do comprador).</li>
-</ul>
-<p>O restante deve ser restituído em até 180 dias após a assinatura do distrato, corrigido pelo índice contratual.</p>
+            <h2>O que é distrato imobiliário?</h2>
+            <p>Distrato é a dissolução de um contrato de compra e venda de imóvel por vontade de uma ou ambas as partes
+                antes de sua conclusão. A Lei 13.786/2018, conhecida como "Lei do Distrato", regulamentou as regras para
+                essa situação.</p>
 
-<div class="highlight-box">
-    <p><strong>Atenção:</strong> Construtoras que inserem cláusulas de retenção superiores aos percentuais legais têm essas cláusulas declaradas nulas pelos tribunais.</p>
-</div>
+            <h2>Distrato por iniciativa do comprador</h2>
+            <p>Se você desistir do imóvel, a lei prevê que a construtora pode reter parte do valor pago para cobrir
+                despesas administrativas. Os percentuais variam:</p>
+            <ul>
+                <li><strong>Até 25%</strong> das parcelas pagas em empreendimentos incorporados (financiados pela
+                    própria incorporadora), acrescidos da corretagem;</li>
+                <li><strong>Até 50%</strong> se o imóvel integrar patrimônio de afetação (mecanismo específico de
+                    proteção do comprador).</li>
+            </ul>
+            <p>O restante deve ser restituído em até 180 dias após a assinatura do distrato, corrigido pelo índice
+                contratual.</p>
 
-<h2>Distrato por culpa da construtora</h2>
-<p>Se o atraso for causado pela construtora, o comprador tem direito a muito mais. Segundo o STJ e a própria Lei do Distrato:</p>
-<ul>
-    <li>Devolução de <strong>100% dos valores pagos</strong>, corrigidos monetariamente, em até 60 dias;</li>
-    <li>Indenização de <strong>1% do valor do contrato</strong> por mês de atraso;</li>
-    <li>Indenização por todos os aluguéis pagos pelo comprador durante o período do atraso;</li>
-    <li>Indenização por danos morais nos casos de atraso injustificado e longo.</li>
-</ul>
+            <div class="highlight-box">
+                <p><strong>Atenção:</strong> Construtoras que inserem cláusulas de retenção superiores aos percentuais
+                    legais têm essas cláusulas declaradas nulas pelos tribunais.</p>
+            </div>
 
-<h2>Prazo de tolerância de 180 dias</h2>
-<p>A Lei do Distrato dá à construtora um prazo de tolerância de até 180 dias corridos após a data original de entrega para concluir a obra, sem que isso caracterize inadimplência. Esse prazo deve estar expresso no contrato.</p>
-<p>Após esses 180 dias, começa a correr a multa de 1% ao mês.</p>
+            <h2>Distrato por culpa da construtora</h2>
+            <p>Se o atraso for causado pela construtora, o comprador tem direito a muito mais. Segundo o STJ e a própria
+                Lei do Distrato:</p>
+            <ul>
+                <li>Devolução de <strong>100% dos valores pagos</strong>, corrigidos monetariamente, em até 60 dias;
+                </li>
+                <li>Indenização de <strong>1% do valor do contrato</strong> por mês de atraso;</li>
+                <li>Indenização por todos os aluguéis pagos pelo comprador durante o período do atraso;</li>
+                <li>Indenização por danos morais nos casos de atraso injustificado e longo.</li>
+            </ul>
 
-<h2>O que fazer se a construtora não devolver o dinheiro?</h2>
-<ol>
-    <li>Notifique a construtora por escrito (carta com aviso de recebimento) exigindo a devolução;</li>
-    <li>Registre queixa no órgão de defesa do consumidor (Procon);</li>
-    <li>Ajuíze ação com pedido de tutela antecipada para bloqueio de valores caso a construtora esteja em dificuldades financeiras.</li>
-</ol>
-<p>Muitos casos de distrato são resolvidos com acordos judiciais, mas a presença de um advogado especializado desde o início garante que os percentuais legais de retenção não sejam extrapolados.</p>
+            <h2>Prazo de tolerância de 180 dias</h2>
+            <p>A Lei do Distrato dá à construtora um prazo de tolerância de até 180 dias corridos após a data original
+                de entrega para concluir a obra, sem que isso caracterize inadimplência. Esse prazo deve estar expresso
+                no contrato.</p>
+            <p>Após esses 180 dias, começa a correr a multa de 1% ao mês.</p>
+
+            <h2>O que fazer se a construtora não devolver o dinheiro?</h2>
+            <ol>
+                <li>Notifique a construtora por escrito (carta com aviso de recebimento) exigindo a devolução;</li>
+                <li>Registre queixa no órgão de defesa do consumidor (Procon);</li>
+                <li>Ajuíze ação com pedido de tutela antecipada para bloqueio de valores caso a construtora esteja em
+                    dificuldades financeiras.</li>
+            </ol>
+            <p>Muitos casos de distrato são resolvidos com acordos judiciais, mas a presença de um advogado
+                especializado desde o início garante que os percentuais legais de retenção não sejam extrapolados.</p>
 
 
             <div class="article-author-box">
@@ -233,7 +275,8 @@
 
             <div class="article-cta-bar">
                 <h3>Ficou com dúvidas? Fale diretamente com o Dr. Estevão Cursi.</h3>
-                <p>Atendimento personalizado, sem custo inicial. Explique seu caso e receba uma orientação especializada.</p>
+                <p>Atendimento personalizado, sem custo inicial. Explique seu caso e receba uma orientação
+                    especializada.</p>
                 <div class="article-nav-buttons">
                     <a href="../../blog.html" class="btn--back">&#8592; Voltar para os Artigos</a>
                     <a href="../../index.html#contato" class="btn btn--primary">Falar com o Advogado</a>
@@ -247,7 +290,8 @@
             <div class="footer__content">
                 <div class="footer__section">
                     <h4>Dr. Estevão Cursi</h4>
-                    <p style="color:var(--text-secondary);line-height:1.7;">Advocacia de excelência com compromisso ético e foco em resultados concretos.</p>
+                    <p style="color:var(--text-secondary);line-height:1.7;">Advocacia de excelência com compromisso
+                        ético e foco em resultados concretos.</p>
                 </div>
                 <div class="footer__section">
                     <h4>Áreas de Atuação</h4>
@@ -276,4 +320,5 @@
 
     <script src="../../js/main.js"></script>
 </body>
+
 </html>

@@ -1,9 +1,11 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
-    <meta name="description" content="Como funciona o inventário extrajudicial em cartório? Saiba os requisitos, os impostos envolvidos e as vantagens em relação ao inventário judicial.">
+    <meta name="description"
+        content="Como funciona o inventário extrajudicial em cartório? Saiba os requisitos, os impostos envolvidos e as vantagens em relação ao inventário judicial.">
     <meta name="author" content="Dr. Estevão Cursi">
     <meta name="robots" content="index, follow">
     <title>Inventário Extrajudicial: Velocidade na Partilha | Dr. Estevão Cursi - Advocacia</title>
@@ -11,38 +13,43 @@
     <link rel="icon" type="image/png" href="../../img.png">
     <style>
         .article-hero {
-            background: linear-gradient(135deg, rgba(10,13,17,0.95) 60%, rgba(59,130,246,0.15) 100%),
-                        url('https://loremflickr.com/1200/600/law,justice?lock=28') center/cover no-repeat;
+            background: linear-gradient(135deg, rgba(10, 13, 17, 0.95) 60%, rgba(59, 130, 246, 0.15) 100%),
+                url('https://picsum.photos/seed/cursi-artigo-inventario/1200/600') center/cover no-repeat;
             padding: 180px 0 80px;
-            border-bottom: 1px solid rgba(255,255,255,0.07);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.07);
         }
+
         .article-hero__badge {
             display: inline-block;
             font-size: 0.72rem;
             text-transform: uppercase;
             letter-spacing: 2px;
             color: var(--accent-blue);
-            background: rgba(59,130,246,0.1);
-            border: 1px solid rgba(59,130,246,0.3);
+            background: rgba(59, 130, 246, 0.1);
+            border: 1px solid rgba(59, 130, 246, 0.3);
             padding: 0.3rem 0.9rem;
             border-radius: 20px;
             margin-bottom: 1.2rem;
         }
+
         .article-hero__title {
             font-size: clamp(1.8rem, 4vw, 2.8rem);
             font-weight: 800;
             line-height: 1.25;
             margin-bottom: 1rem;
         }
+
         .article-hero__meta {
             font-size: 0.88rem;
             color: var(--text-secondary);
         }
+
         .article-body {
             max-width: 780px;
             margin: 0 auto;
             padding: 3rem var(--spacing-md);
         }
+
         .article-body h2 {
             font-size: 1.45rem;
             color: var(--text-primary);
@@ -50,46 +57,55 @@
             border-left: 3px solid var(--accent-blue);
             padding-left: 1rem;
         }
+
         .article-body h3 {
             font-size: 1.15rem;
             color: var(--accent-blue);
             margin: 1.8rem 0 0.8rem;
         }
+
         .article-body p {
             font-size: 1.05rem;
             line-height: 1.85;
             color: var(--text-secondary);
             margin-bottom: 1.2rem;
         }
-        .article-body ul, .article-body ol {
+
+        .article-body ul,
+        .article-body ol {
             padding-left: 1.5rem;
             margin-bottom: 1.2rem;
         }
+
         .article-body li {
             font-size: 1.02rem;
             line-height: 1.75;
             color: var(--text-secondary);
             margin-bottom: 0.4rem;
         }
+
         .article-body .highlight-box {
-            background: rgba(59,130,246,0.07);
+            background: rgba(59, 130, 246, 0.07);
             border-left: 4px solid var(--accent-blue);
             padding: 1.2rem 1.5rem;
             border-radius: 0 8px 8px 0;
             margin: 1.5rem 0;
         }
+
         .article-body .highlight-box p {
             margin-bottom: 0;
             color: var(--text-primary);
         }
+
         .article-author-box {
-            border-top: 1px solid rgba(255,255,255,0.08);
+            border-top: 1px solid rgba(255, 255, 255, 0.08);
             padding-top: 2rem;
             margin-top: 3rem;
             display: flex;
             align-items: center;
             gap: 1.2rem;
         }
+
         .article-author-box img {
             width: 64px;
             height: 64px;
@@ -97,32 +113,38 @@
             border: 2px solid var(--accent-blue);
             object-fit: cover;
         }
+
         .article-author-box .author-info h4 {
             font-size: 1rem;
             color: var(--accent-blue);
             margin-bottom: 0.2rem;
         }
+
         .article-author-box .author-info span {
             font-size: 0.82rem;
             color: var(--text-secondary);
         }
+
         .article-cta-bar {
-            background: rgba(59,130,246,0.06);
-            border: 1px solid rgba(59,130,246,0.15);
+            background: rgba(59, 130, 246, 0.06);
+            border: 1px solid rgba(59, 130, 246, 0.15);
             border-radius: var(--radius-md);
             padding: 2rem;
             text-align: center;
             margin: 3rem 0;
         }
+
         .article-cta-bar h3 {
             color: var(--text-primary);
             font-size: 1.25rem;
             margin-bottom: 0.6rem;
         }
+
         .article-cta-bar p {
             font-size: 0.95rem;
             margin-bottom: 1.5rem;
         }
+
         .article-nav-buttons {
             display: flex;
             gap: 1rem;
@@ -130,10 +152,11 @@
             flex-wrap: wrap;
             margin-top: 1rem;
         }
+
         .btn--back {
             background: transparent;
             color: var(--text-secondary);
-            border: 1px solid rgba(255,255,255,0.15);
+            border: 1px solid rgba(255, 255, 255, 0.15);
             padding: 0.65rem 1.5rem;
             border-radius: var(--radius-sm);
             font-size: 0.9rem;
@@ -143,12 +166,14 @@
             align-items: center;
             gap: 0.5rem;
         }
+
         .btn--back:hover {
             border-color: var(--accent-blue);
             color: var(--accent-blue);
         }
     </style>
 </head>
+
 <body>
     <a href="#main" class="skip-link sr-only">Ir para o conteúdo principal</a>
 
@@ -174,7 +199,8 @@
             <div class="container">
                 <span class="article-hero__badge">Família e Sucessões</span>
                 <h1 class="article-hero__title">Inventário Extrajudicial: Velocidade na Partilha</h1>
-                <p class="article-hero__meta">Por <strong style="color:var(--accent-blue);">Dr. Estevão Cursi</strong> &nbsp;·&nbsp; OAB 378065 &nbsp;·&nbsp; Publicado em março de 2026</p>
+                <p class="article-hero__meta">Por <strong style="color:var(--accent-blue);">Dr. Estevão Cursi</strong>
+                    &nbsp;·&nbsp; OAB 378065 &nbsp;·&nbsp; Publicado em março de 2026</p>
             </div>
         </div>
 
@@ -183,44 +209,57 @@
                 <a href="../../blog.html" class="btn--back">&#8592; Voltar para os Artigos</a>
             </div>
 
-            
-<p>Perder um familiar já é uma experiência difícil. Ter que enfrentar anos de inventário judicial então pode ser devastador — tanto emocional quanto financeiramente. O inventário extrajudicial, realizado diretamente em cartório, nasceu para tornar esse processo muito mais rápido e menos oneroso.</p>
 
-<h2>O que é o inventário extrajudicial?</h2>
-<p>O inventário extrajudicial é o procedimento realizado em Cartório de Notas para partilhar os bens deixados pelo falecido, sem necessidade de processo judicial. Foi regulamentado pelo art. 610 do CPC de 2015 e pela Resolução 35 do CNJ.</p>
+            <p>Perder um familiar já é uma experiência difícil. Ter que enfrentar anos de inventário judicial então pode
+                ser devastador — tanto emocional quanto financeiramente. O inventário extrajudicial, realizado
+                diretamente em cartório, nasceu para tornar esse processo muito mais rápido e menos oneroso.</p>
 
-<h2>Quais são os requisitos?</h2>
-<p>Para que o inventário possa ser feito em cartório, é necessário:</p>
-<ul>
-    <li>Todos os herdeiros devem ser maiores e capazes (maiores de 18 anos e sem impedimento mental);</li>
-    <li>Não pode haver testamento (ou o testamento deve ter sido previamente aberto e cumprido judicialmente);</li>
-    <li>Todos os herdeiros devem estar de acordo com a partilha;</li>
-    <li>Todos devem estar representados por advogado;</li>
-    <li>Capacidade tributária: pagamento do ITCMD (imposto sobre herança/doação).</li>
-</ul>
+            <h2>O que é o inventário extrajudicial?</h2>
+            <p>O inventário extrajudicial é o procedimento realizado em Cartório de Notas para partilhar os bens
+                deixados pelo falecido, sem necessidade de processo judicial. Foi regulamentado pelo art. 610 do CPC de
+                2015 e pela Resolução 35 do CNJ.</p>
 
-<div class="highlight-box">
-    <p><strong>Prazo comparativo:</strong> Um inventário judicial médio leva de 2 a 5 anos. Um inventário extrajudicial bem preparado pode ser concluído em 30 a 90 dias.</p>
-</div>
+            <h2>Quais são os requisitos?</h2>
+            <p>Para que o inventário possa ser feito em cartório, é necessário:</p>
+            <ul>
+                <li>Todos os herdeiros devem ser maiores e capazes (maiores de 18 anos e sem impedimento mental);</li>
+                <li>Não pode haver testamento (ou o testamento deve ter sido previamente aberto e cumprido
+                    judicialmente);</li>
+                <li>Todos os herdeiros devem estar de acordo com a partilha;</li>
+                <li>Todos devem estar representados por advogado;</li>
+                <li>Capacidade tributária: pagamento do ITCMD (imposto sobre herança/doação).</li>
+            </ul>
 
-<h2>Quais impostos incidem?</h2>
-<h3>ITCMD (Imposto sobre Transmissão Causa Mortis e Doação)</h3>
-<p>É o imposto estadual que incide sobre heranças e doações. Cada estado tem sua própria alíquota e legislação. No estado de São Paulo, por exemplo, a alíquota é de 4% sobre o valor dos bens. No Rio de Janeiro, pode chegar a 8% progressivo.</p>
+            <div class="highlight-box">
+                <p><strong>Prazo comparativo:</strong> Um inventário judicial médio leva de 2 a 5 anos. Um inventário
+                    extrajudicial bem preparado pode ser concluído em 30 a 90 dias.</p>
+            </div>
 
-<h3>ITBI (Imposto sobre Transmissão de Bens Imóveis)</h3>
-<p>Em geral não incide no inventário, pois é tributo municipal cobrado sobre a <em>compra e venda</em> de imóveis. Mas pode haver cobrança na partilha de imóveis em situações específicas que o advogado deve avaliar.</p>
+            <h2>Quais impostos incidem?</h2>
+            <h3>ITCMD (Imposto sobre Transmissão Causa Mortis e Doação)</h3>
+            <p>É o imposto estadual que incide sobre heranças e doações. Cada estado tem sua própria alíquota e
+                legislação. No estado de São Paulo, por exemplo, a alíquota é de 4% sobre o valor dos bens. No Rio de
+                Janeiro, pode chegar a 8% progressivo.</p>
 
-<h2>Quais bens podem ser partilhados no cartório?</h2>
-<ul>
-    <li>Imóveis (casa, apartamento, terreno, rural);</li>
-    <li>Veículos;</li>
-    <li>Saldo em contas bancárias e investimentos;</li>
-    <li>Cotas de empresas e participações societárias;</li>
-    <li>Jóias, obras de arte e outros bens de valor declarados.</li>
-</ul>
+            <h3>ITBI (Imposto sobre Transmissão de Bens Imóveis)</h3>
+            <p>Em geral não incide no inventário, pois é tributo municipal cobrado sobre a <em>compra e venda</em> de
+                imóveis. Mas pode haver cobrança na partilha de imóveis em situações específicas que o advogado deve
+                avaliar.</p>
 
-<h2>Papel do advogado no inventário extrajudicial</h2>
-<p>A presença de um advogado é obrigatória no inventário extrajudicial — e não é burocracia: o advogado garante que os interesses de cada herdeiro sejam protegidos, que os cálculos de tributos sejam feitos corretamente e que o resultado registrado em escritura pública seja juridicamente correto e irrevogável.</p>
+            <h2>Quais bens podem ser partilhados no cartório?</h2>
+            <ul>
+                <li>Imóveis (casa, apartamento, terreno, rural);</li>
+                <li>Veículos;</li>
+                <li>Saldo em contas bancárias e investimentos;</li>
+                <li>Cotas de empresas e participações societárias;</li>
+                <li>Jóias, obras de arte e outros bens de valor declarados.</li>
+            </ul>
+
+            <h2>Papel do advogado no inventário extrajudicial</h2>
+            <p>A presença de um advogado é obrigatória no inventário extrajudicial — e não é burocracia: o advogado
+                garante que os interesses de cada herdeiro sejam protegidos, que os cálculos de tributos sejam feitos
+                corretamente e que o resultado registrado em escritura pública seja juridicamente correto e irrevogável.
+            </p>
 
 
             <div class="article-author-box">
@@ -233,7 +272,8 @@
 
             <div class="article-cta-bar">
                 <h3>Ficou com dúvidas? Fale diretamente com o Dr. Estevão Cursi.</h3>
-                <p>Atendimento personalizado, sem custo inicial. Explique seu caso e receba uma orientação especializada.</p>
+                <p>Atendimento personalizado, sem custo inicial. Explique seu caso e receba uma orientação
+                    especializada.</p>
                 <div class="article-nav-buttons">
                     <a href="../../blog.html" class="btn--back">&#8592; Voltar para os Artigos</a>
                     <a href="../../index.html#contato" class="btn btn--primary">Falar com o Advogado</a>
@@ -247,7 +287,8 @@
             <div class="footer__content">
                 <div class="footer__section">
                     <h4>Dr. Estevão Cursi</h4>
-                    <p style="color:var(--text-secondary);line-height:1.7;">Advocacia de excelência com compromisso ético e foco em resultados concretos.</p>
+                    <p style="color:var(--text-secondary);line-height:1.7;">Advocacia de excelência com compromisso
+                        ético e foco em resultados concretos.</p>
                 </div>
                 <div class="footer__section">
                     <h4>Áreas de Atuação</h4>
@@ -276,4 +317,5 @@
 
     <script src="../../js/main.js"></script>
 </body>
+
 </html>

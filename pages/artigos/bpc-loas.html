@@ -1,9 +1,11 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
-    <meta name="description" content="Saiba como funciona o BPC-LOAS, os critérios de renda para concessão e como a via judicial pode ampliar as possibilidades de aprovação.">
+    <meta name="description"
+        content="Saiba como funciona o BPC-LOAS, os critérios de renda para concessão e como a via judicial pode ampliar as possibilidades de aprovação.">
     <meta name="author" content="Dr. Estevão Cursi">
     <meta name="robots" content="index, follow">
     <title>Benefício de Prestação Continuada (BPC / LOAS) | Dr. Estevão Cursi - Advocacia</title>
@@ -11,38 +13,43 @@
     <link rel="icon" type="image/png" href="../../img.png">
     <style>
         .article-hero {
-            background: linear-gradient(135deg, rgba(10,13,17,0.95) 60%, rgba(59,130,246,0.15) 100%),
-                        url('https://loremflickr.com/1200/600/law,justice?lock=25') center/cover no-repeat;
+            background: linear-gradient(135deg, rgba(10, 13, 17, 0.95) 60%, rgba(59, 130, 246, 0.15) 100%),
+                url('https://picsum.photos/seed/cursi-artigo-bpc-loas/1200/600') center/cover no-repeat;
             padding: 180px 0 80px;
-            border-bottom: 1px solid rgba(255,255,255,0.07);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.07);
         }
+
         .article-hero__badge {
             display: inline-block;
             font-size: 0.72rem;
             text-transform: uppercase;
             letter-spacing: 2px;
             color: var(--accent-blue);
-            background: rgba(59,130,246,0.1);
-            border: 1px solid rgba(59,130,246,0.3);
+            background: rgba(59, 130, 246, 0.1);
+            border: 1px solid rgba(59, 130, 246, 0.3);
             padding: 0.3rem 0.9rem;
             border-radius: 20px;
             margin-bottom: 1.2rem;
         }
+
         .article-hero__title {
             font-size: clamp(1.8rem, 4vw, 2.8rem);
             font-weight: 800;
             line-height: 1.25;
             margin-bottom: 1rem;
         }
+
         .article-hero__meta {
             font-size: 0.88rem;
             color: var(--text-secondary);
         }
+
         .article-body {
             max-width: 780px;
             margin: 0 auto;
             padding: 3rem var(--spacing-md);
         }
+
         .article-body h2 {
             font-size: 1.45rem;
             color: var(--text-primary);
@@ -50,46 +57,55 @@
             border-left: 3px solid var(--accent-blue);
             padding-left: 1rem;
         }
+
         .article-body h3 {
             font-size: 1.15rem;
             color: var(--accent-blue);
             margin: 1.8rem 0 0.8rem;
         }
+
         .article-body p {
             font-size: 1.05rem;
             line-height: 1.85;
             color: var(--text-secondary);
             margin-bottom: 1.2rem;
         }
-        .article-body ul, .article-body ol {
+
+        .article-body ul,
+        .article-body ol {
             padding-left: 1.5rem;
             margin-bottom: 1.2rem;
         }
+
         .article-body li {
             font-size: 1.02rem;
             line-height: 1.75;
             color: var(--text-secondary);
             margin-bottom: 0.4rem;
         }
+
         .article-body .highlight-box {
-            background: rgba(59,130,246,0.07);
+            background: rgba(59, 130, 246, 0.07);
             border-left: 4px solid var(--accent-blue);
             padding: 1.2rem 1.5rem;
             border-radius: 0 8px 8px 0;
             margin: 1.5rem 0;
         }
+
         .article-body .highlight-box p {
             margin-bottom: 0;
             color: var(--text-primary);
         }
+
         .article-author-box {
-            border-top: 1px solid rgba(255,255,255,0.08);
+            border-top: 1px solid rgba(255, 255, 255, 0.08);
             padding-top: 2rem;
             margin-top: 3rem;
             display: flex;
             align-items: center;
             gap: 1.2rem;
         }
+
         .article-author-box img {
             width: 64px;
             height: 64px;
@@ -97,32 +113,38 @@
             border: 2px solid var(--accent-blue);
             object-fit: cover;
         }
+
         .article-author-box .author-info h4 {
             font-size: 1rem;
             color: var(--accent-blue);
             margin-bottom: 0.2rem;
         }
+
         .article-author-box .author-info span {
             font-size: 0.82rem;
             color: var(--text-secondary);
         }
+
         .article-cta-bar {
-            background: rgba(59,130,246,0.06);
-            border: 1px solid rgba(59,130,246,0.15);
+            background: rgba(59, 130, 246, 0.06);
+            border: 1px solid rgba(59, 130, 246, 0.15);
             border-radius: var(--radius-md);
             padding: 2rem;
             text-align: center;
             margin: 3rem 0;
         }
+
         .article-cta-bar h3 {
             color: var(--text-primary);
             font-size: 1.25rem;
             margin-bottom: 0.6rem;
         }
+
         .article-cta-bar p {
             font-size: 0.95rem;
             margin-bottom: 1.5rem;
         }
+
         .article-nav-buttons {
             display: flex;
             gap: 1rem;
@@ -130,10 +152,11 @@
             flex-wrap: wrap;
             margin-top: 1rem;
         }
+
         .btn--back {
             background: transparent;
             color: var(--text-secondary);
-            border: 1px solid rgba(255,255,255,0.15);
+            border: 1px solid rgba(255, 255, 255, 0.15);
             padding: 0.65rem 1.5rem;
             border-radius: var(--radius-sm);
             font-size: 0.9rem;
@@ -143,12 +166,14 @@
             align-items: center;
             gap: 0.5rem;
         }
+
         .btn--back:hover {
             border-color: var(--accent-blue);
             color: var(--accent-blue);
         }
     </style>
 </head>
+
 <body>
     <a href="#main" class="skip-link sr-only">Ir para o conteúdo principal</a>
 
@@ -174,7 +199,8 @@
             <div class="container">
                 <span class="article-hero__badge">Direito Previdenciário</span>
                 <h1 class="article-hero__title">Benefício de Prestação Continuada (BPC / LOAS)</h1>
-                <p class="article-hero__meta">Por <strong style="color:var(--accent-blue);">Dr. Estevão Cursi</strong> &nbsp;·&nbsp; OAB 378065 &nbsp;·&nbsp; Publicado em março de 2026</p>
+                <p class="article-hero__meta">Por <strong style="color:var(--accent-blue);">Dr. Estevão Cursi</strong>
+                    &nbsp;·&nbsp; OAB 378065 &nbsp;·&nbsp; Publicado em março de 2026</p>
             </div>
         </div>
 
@@ -183,37 +209,52 @@
                 <a href="../../blog.html" class="btn--back">&#8592; Voltar para os Artigos</a>
             </div>
 
-            
-<p>O Benefício de Prestação Continuada (BPC), também chamado de LOAS (Lei Orgânica da Assistência Social), é um benefício assistencial — não previdenciário — que garante um salário mínimo mensal para idosos acima de 65 anos e para Pessoas com Deficiência (PcD) de qualquer idade que comprovem hipossuficiência financeira.</p>
 
-<h2>Quem tem direito ao BPC?</h2>
-<p>Para ter direito ao benefício, é necessário:</p>
-<ul>
-    <li><strong>Idosos:</strong> ter 65 anos ou mais e renda familiar per capita inferior a 1/4 do salário mínimo;</li>
-    <li><strong>PcD:</strong> ter deficiência de longo prazo (mínimo 2 anos) que impeça ou dificulte a participação plena na sociedade — e a mesma regra de renda;</li>
-    <li>Não receber outro benefício do regime geral ou especial de previdência social (com exceções).</li>
-</ul>
+            <p>O Benefício de Prestação Continuada (BPC), também chamado de LOAS (Lei Orgânica da Assistência Social), é
+                um benefício assistencial — não previdenciário — que garante um salário mínimo mensal para idosos acima
+                de 65 anos e para Pessoas com Deficiência (PcD) de qualquer idade que comprovem hipossuficiência
+                financeira.</p>
 
-<div class="highlight-box">
-    <p><strong>Renda per capita:</strong> divide-se a renda mensal total da família (moradores do mesmo domicílio) pelo número de integrantes. Se o resultado for inferior a 1/4 do salário mínimo (cerca de R$ 330 em 2026), o critério econômico é atendido.</p>
-</div>
+            <h2>Quem tem direito ao BPC?</h2>
+            <p>Para ter direito ao benefício, é necessário:</p>
+            <ul>
+                <li><strong>Idosos:</strong> ter 65 anos ou mais e renda familiar per capita inferior a 1/4 do salário
+                    mínimo;</li>
+                <li><strong>PcD:</strong> ter deficiência de longo prazo (mínimo 2 anos) que impeça ou dificulte a
+                    participação plena na sociedade — e a mesma regra de renda;</li>
+                <li>Não receber outro benefício do regime geral ou especial de previdência social (com exceções).</li>
+            </ul>
 
-<h2>Gastos médicos podem reduzir a renda computada</h2>
-<p>Uma das possibilidades mais desconhecidas é que, por entendimento dos tribunais (em especial STJ e TNU — Turma Nacional de Uniformização dos Juizados Especiais Federais), <strong>despesas médicas e de medicamentos</strong> comprovadas podem ser deduzidas da renda familiar para efeito do cálculo.</p>
-<p>Isso significa que famílias com renda levemente superior ao limite de 1/4 do salário mínimo, mas com gastos pesados com saúde de um familiar, podem ter o direito ao BPC reconhecido judicialmente.</p>
+            <div class="highlight-box">
+                <p><strong>Renda per capita:</strong> divide-se a renda mensal total da família (moradores do mesmo
+                    domicílio) pelo número de integrantes. Se o resultado for inferior a 1/4 do salário mínimo (cerca de
+                    R$ 330 em 2026), o critério econômico é atendido.</p>
+            </div>
 
-<h2>BPC sendo negado pelo INSS: o que fazer?</h2>
-<p>O INSS aplica os critérios legais de forma rígida e frequentemente nega o benefício a pessoas que, com uma análise mais aprofundada, fariam jus a ele. As principais razões de negativa são:</p>
-<ul>
-    <li>Renda per capita acima do limite (1/4 do salário mínimo);</li>
-    <li>Deficiência não reconhecida como "de longo prazo" pelos peritos do INSS;</li>
-    <li>Composição familiar incorretamente considerada;</li>
-    <li>Documentação insuficiente.</li>
-</ul>
-<p>Nesses casos, a ação judicial no Juizado Especial Federal é o caminho mais eficaz. O juiz pode determinar avaliação biopsicossocial e considerar critérios mais amplos do que os usados pelo INSS administrativamente.</p>
+            <h2>Gastos médicos podem reduzir a renda computada</h2>
+            <p>Uma das possibilidades mais desconhecidas é que, por entendimento dos tribunais (em especial STJ e TNU —
+                Turma Nacional de Uniformização dos Juizados Especiais Federais), <strong>despesas médicas e de
+                    medicamentos</strong> comprovadas podem ser deduzidas da renda familiar para efeito do cálculo.</p>
+            <p>Isso significa que famílias com renda levemente superior ao limite de 1/4 do salário mínimo, mas com
+                gastos pesados com saúde de um familiar, podem ter o direito ao BPC reconhecido judicialmente.</p>
 
-<h2>Cumulação com outros benefícios</h2>
-<p>Via de regra, o BPC não pode ser acumulado com aposentadoria ou pensão. No entanto, existe a possibilidade de o cônjuge ou filho com deficiência acumular com benefício de membro da família — tema que já foi objeto de decisão favorável nos tribunais em determinadas situações.</p>
+            <h2>BPC sendo negado pelo INSS: o que fazer?</h2>
+            <p>O INSS aplica os critérios legais de forma rígida e frequentemente nega o benefício a pessoas que, com
+                uma análise mais aprofundada, fariam jus a ele. As principais razões de negativa são:</p>
+            <ul>
+                <li>Renda per capita acima do limite (1/4 do salário mínimo);</li>
+                <li>Deficiência não reconhecida como "de longo prazo" pelos peritos do INSS;</li>
+                <li>Composição familiar incorretamente considerada;</li>
+                <li>Documentação insuficiente.</li>
+            </ul>
+            <p>Nesses casos, a ação judicial no Juizado Especial Federal é o caminho mais eficaz. O juiz pode determinar
+                avaliação biopsicossocial e considerar critérios mais amplos do que os usados pelo INSS
+                administrativamente.</p>
+
+            <h2>Cumulação com outros benefícios</h2>
+            <p>Via de regra, o BPC não pode ser acumulado com aposentadoria ou pensão. No entanto, existe a
+                possibilidade de o cônjuge ou filho com deficiência acumular com benefício de membro da família — tema
+                que já foi objeto de decisão favorável nos tribunais em determinadas situações.</p>
 
 
             <div class="article-author-box">
@@ -226,7 +267,8 @@
 
             <div class="article-cta-bar">
                 <h3>Ficou com dúvidas? Fale diretamente com o Dr. Estevão Cursi.</h3>
-                <p>Atendimento personalizado, sem custo inicial. Explique seu caso e receba uma orientação especializada.</p>
+                <p>Atendimento personalizado, sem custo inicial. Explique seu caso e receba uma orientação
+                    especializada.</p>
                 <div class="article-nav-buttons">
                     <a href="../../blog.html" class="btn--back">&#8592; Voltar para os Artigos</a>
                     <a href="../../index.html#contato" class="btn btn--primary">Falar com o Advogado</a>
@@ -240,7 +282,8 @@
             <div class="footer__content">
                 <div class="footer__section">
                     <h4>Dr. Estevão Cursi</h4>
-                    <p style="color:var(--text-secondary);line-height:1.7;">Advocacia de excelência com compromisso ético e foco em resultados concretos.</p>
+                    <p style="color:var(--text-secondary);line-height:1.7;">Advocacia de excelência com compromisso
+                        ético e foco em resultados concretos.</p>
                 </div>
                 <div class="footer__section">
                     <h4>Áreas de Atuação</h4>
@@ -269,4 +312,5 @@
 
     <script src="../../js/main.js"></script>
 </body>
+
 </html>

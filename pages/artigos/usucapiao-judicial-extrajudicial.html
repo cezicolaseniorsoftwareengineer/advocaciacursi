@@ -1,9 +1,11 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
-    <meta name="description" content="Saiba como funciona o processo de usucapião judicial e extrajudicial, os requisitos de cada modalidade e o que é necessário para formalizar a posse de um imóvel.">
+    <meta name="description"
+        content="Saiba como funciona o processo de usucapião judicial e extrajudicial, os requisitos de cada modalidade e o que é necessário para formalizar a posse de um imóvel.">
     <meta name="author" content="Dr. Estevão Cursi">
     <meta name="robots" content="index, follow">
     <title>Usucapião Judicial e Extrajudicial (Cartório) | Dr. Estevão Cursi - Advocacia</title>
@@ -11,38 +13,43 @@
     <link rel="icon" type="image/png" href="../../img.png">
     <style>
         .article-hero {
-            background: linear-gradient(135deg, rgba(10,13,17,0.95) 60%, rgba(59,130,246,0.15) 100%),
-                        url('https://loremflickr.com/1200/600/law,justice?lock=21') center/cover no-repeat;
+            background: linear-gradient(135deg, rgba(10, 13, 17, 0.95) 60%, rgba(59, 130, 246, 0.15) 100%),
+                url('https://picsum.photos/seed/cursi-artigo-usucapiao/1200/600') center/cover no-repeat;
             padding: 180px 0 80px;
-            border-bottom: 1px solid rgba(255,255,255,0.07);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.07);
         }
+
         .article-hero__badge {
             display: inline-block;
             font-size: 0.72rem;
             text-transform: uppercase;
             letter-spacing: 2px;
             color: var(--accent-blue);
-            background: rgba(59,130,246,0.1);
-            border: 1px solid rgba(59,130,246,0.3);
+            background: rgba(59, 130, 246, 0.1);
+            border: 1px solid rgba(59, 130, 246, 0.3);
             padding: 0.3rem 0.9rem;
             border-radius: 20px;
             margin-bottom: 1.2rem;
         }
+
         .article-hero__title {
             font-size: clamp(1.8rem, 4vw, 2.8rem);
             font-weight: 800;
             line-height: 1.25;
             margin-bottom: 1rem;
         }
+
         .article-hero__meta {
             font-size: 0.88rem;
             color: var(--text-secondary);
         }
+
         .article-body {
             max-width: 780px;
             margin: 0 auto;
             padding: 3rem var(--spacing-md);
         }
+
         .article-body h2 {
             font-size: 1.45rem;
             color: var(--text-primary);
@@ -50,46 +57,55 @@
             border-left: 3px solid var(--accent-blue);
             padding-left: 1rem;
         }
+
         .article-body h3 {
             font-size: 1.15rem;
             color: var(--accent-blue);
             margin: 1.8rem 0 0.8rem;
         }
+
         .article-body p {
             font-size: 1.05rem;
             line-height: 1.85;
             color: var(--text-secondary);
             margin-bottom: 1.2rem;
         }
-        .article-body ul, .article-body ol {
+
+        .article-body ul,
+        .article-body ol {
             padding-left: 1.5rem;
             margin-bottom: 1.2rem;
         }
+
         .article-body li {
             font-size: 1.02rem;
             line-height: 1.75;
             color: var(--text-secondary);
             margin-bottom: 0.4rem;
         }
+
         .article-body .highlight-box {
-            background: rgba(59,130,246,0.07);
+            background: rgba(59, 130, 246, 0.07);
             border-left: 4px solid var(--accent-blue);
             padding: 1.2rem 1.5rem;
             border-radius: 0 8px 8px 0;
             margin: 1.5rem 0;
         }
+
         .article-body .highlight-box p {
             margin-bottom: 0;
             color: var(--text-primary);
         }
+
         .article-author-box {
-            border-top: 1px solid rgba(255,255,255,0.08);
+            border-top: 1px solid rgba(255, 255, 255, 0.08);
             padding-top: 2rem;
             margin-top: 3rem;
             display: flex;
             align-items: center;
             gap: 1.2rem;
         }
+
         .article-author-box img {
             width: 64px;
             height: 64px;
@@ -97,32 +113,38 @@
             border: 2px solid var(--accent-blue);
             object-fit: cover;
         }
+
         .article-author-box .author-info h4 {
             font-size: 1rem;
             color: var(--accent-blue);
             margin-bottom: 0.2rem;
         }
+
         .article-author-box .author-info span {
             font-size: 0.82rem;
             color: var(--text-secondary);
         }
+
         .article-cta-bar {
-            background: rgba(59,130,246,0.06);
-            border: 1px solid rgba(59,130,246,0.15);
+            background: rgba(59, 130, 246, 0.06);
+            border: 1px solid rgba(59, 130, 246, 0.15);
             border-radius: var(--radius-md);
             padding: 2rem;
             text-align: center;
             margin: 3rem 0;
         }
+
         .article-cta-bar h3 {
             color: var(--text-primary);
             font-size: 1.25rem;
             margin-bottom: 0.6rem;
         }
+
         .article-cta-bar p {
             font-size: 0.95rem;
             margin-bottom: 1.5rem;
         }
+
         .article-nav-buttons {
             display: flex;
             gap: 1rem;
@@ -130,10 +152,11 @@
             flex-wrap: wrap;
             margin-top: 1rem;
         }
+
         .btn--back {
             background: transparent;
             color: var(--text-secondary);
-            border: 1px solid rgba(255,255,255,0.15);
+            border: 1px solid rgba(255, 255, 255, 0.15);
             padding: 0.65rem 1.5rem;
             border-radius: var(--radius-sm);
             font-size: 0.9rem;
@@ -143,12 +166,14 @@
             align-items: center;
             gap: 0.5rem;
         }
+
         .btn--back:hover {
             border-color: var(--accent-blue);
             color: var(--accent-blue);
         }
     </style>
 </head>
+
 <body>
     <a href="#main" class="skip-link sr-only">Ir para o conteúdo principal</a>
 
@@ -174,7 +199,8 @@
             <div class="container">
                 <span class="article-hero__badge">Direito Civil</span>
                 <h1 class="article-hero__title">Usucapião Judicial e Extrajudicial (Cartório)</h1>
-                <p class="article-hero__meta">Por <strong style="color:var(--accent-blue);">Dr. Estevão Cursi</strong> &nbsp;·&nbsp; OAB 378065 &nbsp;·&nbsp; Publicado em março de 2026</p>
+                <p class="article-hero__meta">Por <strong style="color:var(--accent-blue);">Dr. Estevão Cursi</strong>
+                    &nbsp;·&nbsp; OAB 378065 &nbsp;·&nbsp; Publicado em março de 2026</p>
             </div>
         </div>
 
@@ -183,56 +209,66 @@
                 <a href="../../blog.html" class="btn--back">&#8592; Voltar para os Artigos</a>
             </div>
 
-            
-<p>Usucapião é o meio pelo qual uma pessoa que possui um bem de forma contínua, pacífica e com ânimo de dono, por determinado período, pode ter a propriedade reconhecida judicialmente ou em cartório. É um importante instrumento de regularização fundiária no Brasil.</p>
 
-<h2>Modalidades de Usucapião no Brasil</h2>
-<p>O Código Civil e leis específicas preveem diversas modalidades, com requisitos diferentes:</p>
+            <p>Usucapião é o meio pelo qual uma pessoa que possui um bem de forma contínua, pacífica e com ânimo de
+                dono, por determinado período, pode ter a propriedade reconhecida judicialmente ou em cartório. É um
+                importante instrumento de regularização fundiária no Brasil.</p>
 
-<h3>Usucapião Ordinária (art. 1.242, CC)</h3>
-<ul>
-    <li>10 anos de posse contínua e ininterrupta com justo título e boa-fé;</li>
-    <li>5 anos se o possuidor estabeleceu moradia habitual ou realizou obras de interesse social ou econômico.</li>
-</ul>
+            <h2>Modalidades de Usucapião no Brasil</h2>
+            <p>O Código Civil e leis específicas preveem diversas modalidades, com requisitos diferentes:</p>
 
-<h3>Usucapião Extraordinária (art. 1.238, CC)</h3>
-<ul>
-    <li>15 anos de posse ininterrupta, sem oposição — independente de justo título ou boa-fé;</li>
-    <li>Reduzido para 10 anos se usou o imóvel como moradia ou realizou obras.</li>
-</ul>
+            <h3>Usucapião Ordinária (art. 1.242, CC)</h3>
+            <ul>
+                <li>10 anos de posse contínua e ininterrupta com justo título e boa-fé;</li>
+                <li>5 anos se o possuidor estabeleceu moradia habitual ou realizou obras de interesse social ou
+                    econômico.</li>
+            </ul>
 
-<h3>Usucapião Especial Urbana (art. 183, CF / art. 1.240, CC)</h3>
-<ul>
-    <li>5 anos de posse ininterrupta em área urbana de até 250m²;</li>
-    <li>Uso para moradia própria ou familiar;</li>
-    <li>Possuidor não pode ser proprietário de outro imóvel.</li>
-</ul>
+            <h3>Usucapião Extraordinária (art. 1.238, CC)</h3>
+            <ul>
+                <li>15 anos de posse ininterrupta, sem oposição — independente de justo título ou boa-fé;</li>
+                <li>Reduzido para 10 anos se usou o imóvel como moradia ou realizou obras.</li>
+            </ul>
 
-<h3>Usucapião Especial Rural (art. 191, CF)</h3>
-<ul>
-    <li>5 anos de posse em área rural de até 50 hectares;</li>
-    <li>Tornando a área produtiva com trabalho próprio ou familiar;</li>
-    <li>Não possuir outro imóvel.</li>
-</ul>
+            <h3>Usucapião Especial Urbana (art. 183, CF / art. 1.240, CC)</h3>
+            <ul>
+                <li>5 anos de posse ininterrupta em área urbana de até 250m²;</li>
+                <li>Uso para moradia própria ou familiar;</li>
+                <li>Possuidor não pode ser proprietário de outro imóvel.</li>
+            </ul>
 
-<div class="highlight-box">
-    <p><strong>Usucapião Familiar (art. 1.240-A, CC):</strong> 2 anos de posse em imóvel urbano de até 250m², quando o cônjuge ou companheiro abandona o lar. Mais curto prazo do ordenamento brasileiro.</p>
-</div>
+            <h3>Usucapião Especial Rural (art. 191, CF)</h3>
+            <ul>
+                <li>5 anos de posse em área rural de até 50 hectares;</li>
+                <li>Tornando a área produtiva com trabalho próprio ou familiar;</li>
+                <li>Não possuir outro imóvel.</li>
+            </ul>
 
-<h2>Usucapião Extrajudicial (Cartório)</h2>
-<p>Introduzida pelo Novo CPC (Lei 13.105/2015), a usucapião extrajudicial permite regularizar a posse diretamente no Cartório de Registro de Imóveis, sem precisar entrar na fila da Justiça.</p>
-<p>Para isso, é necessário:</p>
-<ul>
-    <li>Ata notarial lavrada por tabelião atestando o tempo e as circunstâncias da posse;</li>
-    <li>Planta e memorial descritivo do imóvel elaborados por engenheiro ou arquiteto;</li>
-    <li>Certidões negativas de débitos tributários;</li>
-    <li>Concordância de todos os confinantes (vizinhos lindeiros) com firma reconhecida;</li>
-    <li>Publicação de edital para ciência de terceiros interessados.</li>
-</ul>
+            <div class="highlight-box">
+                <p><strong>Usucapião Familiar (art. 1.240-A, CC):</strong> 2 anos de posse em imóvel urbano de até
+                    250m², quando o cônjuge ou companheiro abandona o lar. Mais curto prazo do ordenamento brasileiro.
+                </p>
+            </div>
 
-<h2>Quando é melhor ir à Justiça?</h2>
-<p>A via judicial é necessária quando há discordância de algum vizinho, oposição de um eventual proprietário registrado ou impossibilidade de obter algum documento exigido para a via extrajudicial. A ação de usucapião judicial tem rito próprio e pode durar de 2 a 5 anos dependendo da complexidade e do volume processual da comarca.</p>
-<p>O advogado é indispensável nas duas vias — tanto para organizar a documentação quanto para defender os interesses do possuidor em caso de impugnações.</p>
+            <h2>Usucapião Extrajudicial (Cartório)</h2>
+            <p>Introduzida pelo Novo CPC (Lei 13.105/2015), a usucapião extrajudicial permite regularizar a posse
+                diretamente no Cartório de Registro de Imóveis, sem precisar entrar na fila da Justiça.</p>
+            <p>Para isso, é necessário:</p>
+            <ul>
+                <li>Ata notarial lavrada por tabelião atestando o tempo e as circunstâncias da posse;</li>
+                <li>Planta e memorial descritivo do imóvel elaborados por engenheiro ou arquiteto;</li>
+                <li>Certidões negativas de débitos tributários;</li>
+                <li>Concordância de todos os confinantes (vizinhos lindeiros) com firma reconhecida;</li>
+                <li>Publicação de edital para ciência de terceiros interessados.</li>
+            </ul>
+
+            <h2>Quando é melhor ir à Justiça?</h2>
+            <p>A via judicial é necessária quando há discordância de algum vizinho, oposição de um eventual proprietário
+                registrado ou impossibilidade de obter algum documento exigido para a via extrajudicial. A ação de
+                usucapião judicial tem rito próprio e pode durar de 2 a 5 anos dependendo da complexidade e do volume
+                processual da comarca.</p>
+            <p>O advogado é indispensável nas duas vias — tanto para organizar a documentação quanto para defender os
+                interesses do possuidor em caso de impugnações.</p>
 
 
             <div class="article-author-box">
@@ -245,7 +281,8 @@
 
             <div class="article-cta-bar">
                 <h3>Ficou com dúvidas? Fale diretamente com o Dr. Estevão Cursi.</h3>
-                <p>Atendimento personalizado, sem custo inicial. Explique seu caso e receba uma orientação especializada.</p>
+                <p>Atendimento personalizado, sem custo inicial. Explique seu caso e receba uma orientação
+                    especializada.</p>
                 <div class="article-nav-buttons">
                     <a href="../../blog.html" class="btn--back">&#8592; Voltar para os Artigos</a>
                     <a href="../../index.html#contato" class="btn btn--primary">Falar com o Advogado</a>
@@ -259,7 +296,8 @@
             <div class="footer__content">
                 <div class="footer__section">
                     <h4>Dr. Estevão Cursi</h4>
-                    <p style="color:var(--text-secondary);line-height:1.7;">Advocacia de excelência com compromisso ético e foco em resultados concretos.</p>
+                    <p style="color:var(--text-secondary);line-height:1.7;">Advocacia de excelência com compromisso
+                        ético e foco em resultados concretos.</p>
                 </div>
                 <div class="footer__section">
                     <h4>Áreas de Atuação</h4>
@@ -288,4 +326,5 @@
 
     <script src="../../js/main.js"></script>
 </body>
+
 </html>

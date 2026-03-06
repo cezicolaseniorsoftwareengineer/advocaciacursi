@@ -1180,7 +1180,7 @@ ARTICLES = [
 ]
 
 def build_article_page(article):
-    img_url = f"https://loremflickr.com/1200/600/law,justice?lock={article['lock']}"
+    img_url = f"https://picsum.photos/seed/cursi-artigo-{article['lock']}/1200/600"
     return NAV_TEMPLATE.format(
         meta_desc=article['meta_desc'],
         title=article['title'],

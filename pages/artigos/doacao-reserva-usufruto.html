@@ -1,9 +1,11 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
-    <meta name="description" content="Como funciona a doação com reserva de usufruto e por que é uma das estratégias mais vantajosas de planejamento sucessório e proteção patrimonial.">
+    <meta name="description"
+        content="Como funciona a doação com reserva de usufruto e por que é uma das estratégias mais vantajosas de planejamento sucessório e proteção patrimonial.">
     <meta name="author" content="Dr. Estevão Cursi">
     <meta name="robots" content="index, follow">
     <title>Doação com Reserva de Usufruto | Dr. Estevão Cursi - Advocacia</title>
@@ -11,38 +13,43 @@
     <link rel="icon" type="image/png" href="../../img.png">
     <style>
         .article-hero {
-            background: linear-gradient(135deg, rgba(10,13,17,0.95) 60%, rgba(59,130,246,0.15) 100%),
-                        url('https://loremflickr.com/1200/600/law,justice?lock=31') center/cover no-repeat;
+            background: linear-gradient(135deg, rgba(10, 13, 17, 0.95) 60%, rgba(59, 130, 246, 0.15) 100%),
+                url('https://picsum.photos/seed/cursi-artigo-doacao-usufruto/1200/600') center/cover no-repeat;
             padding: 180px 0 80px;
-            border-bottom: 1px solid rgba(255,255,255,0.07);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.07);
         }
+
         .article-hero__badge {
             display: inline-block;
             font-size: 0.72rem;
             text-transform: uppercase;
             letter-spacing: 2px;
             color: var(--accent-blue);
-            background: rgba(59,130,246,0.1);
-            border: 1px solid rgba(59,130,246,0.3);
+            background: rgba(59, 130, 246, 0.1);
+            border: 1px solid rgba(59, 130, 246, 0.3);
             padding: 0.3rem 0.9rem;
             border-radius: 20px;
             margin-bottom: 1.2rem;
         }
+
         .article-hero__title {
             font-size: clamp(1.8rem, 4vw, 2.8rem);
             font-weight: 800;
             line-height: 1.25;
             margin-bottom: 1rem;
         }
+
         .article-hero__meta {
             font-size: 0.88rem;
             color: var(--text-secondary);
         }
+
         .article-body {
             max-width: 780px;
             margin: 0 auto;
             padding: 3rem var(--spacing-md);
         }
+
         .article-body h2 {
             font-size: 1.45rem;
             color: var(--text-primary);
@@ -50,46 +57,55 @@
             border-left: 3px solid var(--accent-blue);
             padding-left: 1rem;
         }
+
         .article-body h3 {
             font-size: 1.15rem;
             color: var(--accent-blue);
             margin: 1.8rem 0 0.8rem;
         }
+
         .article-body p {
             font-size: 1.05rem;
             line-height: 1.85;
             color: var(--text-secondary);
             margin-bottom: 1.2rem;
         }
-        .article-body ul, .article-body ol {
+
+        .article-body ul,
+        .article-body ol {
             padding-left: 1.5rem;
             margin-bottom: 1.2rem;
         }
+
         .article-body li {
             font-size: 1.02rem;
             line-height: 1.75;
             color: var(--text-secondary);
             margin-bottom: 0.4rem;
         }
+
         .article-body .highlight-box {
-            background: rgba(59,130,246,0.07);
+            background: rgba(59, 130, 246, 0.07);
             border-left: 4px solid var(--accent-blue);
             padding: 1.2rem 1.5rem;
             border-radius: 0 8px 8px 0;
             margin: 1.5rem 0;
         }
+
         .article-body .highlight-box p {
             margin-bottom: 0;
             color: var(--text-primary);
         }
+
         .article-author-box {
-            border-top: 1px solid rgba(255,255,255,0.08);
+            border-top: 1px solid rgba(255, 255, 255, 0.08);
             padding-top: 2rem;
             margin-top: 3rem;
             display: flex;
             align-items: center;
             gap: 1.2rem;
         }
+
         .article-author-box img {
             width: 64px;
             height: 64px;
@@ -97,32 +113,38 @@
             border: 2px solid var(--accent-blue);
             object-fit: cover;
         }
+
         .article-author-box .author-info h4 {
             font-size: 1rem;
             color: var(--accent-blue);
             margin-bottom: 0.2rem;
         }
+
         .article-author-box .author-info span {
             font-size: 0.82rem;
             color: var(--text-secondary);
         }
+
         .article-cta-bar {
-            background: rgba(59,130,246,0.06);
-            border: 1px solid rgba(59,130,246,0.15);
+            background: rgba(59, 130, 246, 0.06);
+            border: 1px solid rgba(59, 130, 246, 0.15);
             border-radius: var(--radius-md);
             padding: 2rem;
             text-align: center;
             margin: 3rem 0;
         }
+
         .article-cta-bar h3 {
             color: var(--text-primary);
             font-size: 1.25rem;
             margin-bottom: 0.6rem;
         }
+
         .article-cta-bar p {
             font-size: 0.95rem;
             margin-bottom: 1.5rem;
         }
+
         .article-nav-buttons {
             display: flex;
             gap: 1rem;
@@ -130,10 +152,11 @@
             flex-wrap: wrap;
             margin-top: 1rem;
         }
+
         .btn--back {
             background: transparent;
             color: var(--text-secondary);
-            border: 1px solid rgba(255,255,255,0.15);
+            border: 1px solid rgba(255, 255, 255, 0.15);
             padding: 0.65rem 1.5rem;
             border-radius: var(--radius-sm);
             font-size: 0.9rem;
@@ -143,12 +166,14 @@
             align-items: center;
             gap: 0.5rem;
         }
+
         .btn--back:hover {
             border-color: var(--accent-blue);
             color: var(--accent-blue);
         }
     </style>
 </head>
+
 <body>
     <a href="#main" class="skip-link sr-only">Ir para o conteúdo principal</a>
 
@@ -174,7 +199,8 @@
             <div class="container">
                 <span class="article-hero__badge">Planejamento Sucessório</span>
                 <h1 class="article-hero__title">Doação com Reserva de Usufruto</h1>
-                <p class="article-hero__meta">Por <strong style="color:var(--accent-blue);">Dr. Estevão Cursi</strong> &nbsp;·&nbsp; OAB 378065 &nbsp;·&nbsp; Publicado em março de 2026</p>
+                <p class="article-hero__meta">Por <strong style="color:var(--accent-blue);">Dr. Estevão Cursi</strong>
+                    &nbsp;·&nbsp; OAB 378065 &nbsp;·&nbsp; Publicado em março de 2026</p>
             </div>
         </div>
 
@@ -183,46 +209,66 @@
                 <a href="../../blog.html" class="btn--back">&#8592; Voltar para os Artigos</a>
             </div>
 
-            
-<p>Planejar a sucessão enquanto ainda se está em plena atividade é um ato de responsabilidade e amor pela família. A doação com reserva de usufruto é uma das ferramentas mais eficientes para transmitir patrimônio aos herdeiros em vida, com segurança e economia tributária.</p>
 
-<h2>O que é doação com reserva de usufruto?</h2>
-<p>É uma operação em dois passos:</p>
-<ol>
-    <li>O proprietário (doador) transmite o <strong>bem em si</strong> (a "nua-propriedade") ao herdeiro (donatário);</li>
-    <li>Mas <strong>reserva para si o usufruto</strong>, que é o direito de usar, usufruir e perceber os frutos (aluguéis, por exemplo) do bem enquanto viver.</li>
-</ol>
-<p>Na prática: o filho recebe o imóvel no papel, mas os pais continuam morando nele ou recebendo o aluguel até a morte — quando então o usufruto se extingue e o filho passa a ter a propriedade plena automaticamente.</p>
+            <p>Planejar a sucessão enquanto ainda se está em plena atividade é um ato de responsabilidade e amor pela
+                família. A doação com reserva de usufruto é uma das ferramentas mais eficientes para transmitir
+                patrimônio aos herdeiros em vida, com segurança e economia tributária.</p>
 
-<h2>Por que é vantajoso do ponto de vista tributário?</h2>
-<p>A doação com reserva de usufruto <strong>evita o inventário</strong>. Quando o doador falece, o imóvel não entra no espólio — pois já foi transmitido ao donatário em vida. Isso significa:</p>
-<ul>
-    <li>Sem necessidade de inventário judicial ou extrajudicial para esse bem;</li>
-    <li>Economia nos honorários advocatícios e custas cartoriais do inventário;</li>
-    <li>Menor base de cálculo do ITCMD no момент da doação versus o valor no momento da morte (bens podem valorizar muito);</li>
-    <li>Rapidez na transmissão — o herdeiro já tem o bem registrado em seu nome antes da morte do doador.</li>
-</ul>
+            <h2>O que é doação com reserva de usufruto?</h2>
+            <p>É uma operação em dois passos:</p>
+            <ol>
+                <li>O proprietário (doador) transmite o <strong>bem em si</strong> (a "nua-propriedade") ao herdeiro
+                    (donatário);</li>
+                <li>Mas <strong>reserva para si o usufruto</strong>, que é o direito de usar, usufruir e perceber os
+                    frutos (aluguéis, por exemplo) do bem enquanto viver.</li>
+            </ol>
+            <p>Na prática: o filho recebe o imóvel no papel, mas os pais continuam morando nele ou recebendo o aluguel
+                até a morte — quando então o usufruto se extingue e o filho passa a ter a propriedade plena
+                automaticamente.</p>
 
-<div class="highlight-box">
-    <p><strong>Atenção ao ITCMD:</strong> A doação gera incidência do ITCMD. Porém, o imposto é calculado sobre o valor da nua-propriedade (descontado o usufruto), que é menor que o valor integral do bem — resultando em economia real.</p>
-</div>
+            <h2>Por que é vantajoso do ponto de vista tributário?</h2>
+            <p>A doação com reserva de usufruto <strong>evita o inventário</strong>. Quando o doador falece, o imóvel
+                não entra no espólio — pois já foi transmitido ao donatário em vida. Isso significa:</p>
+            <ul>
+                <li>Sem necessidade de inventário judicial ou extrajudicial para esse bem;</li>
+                <li>Economia nos honorários advocatícios e custas cartoriais do inventário;</li>
+                <li>Menor base de cálculo do ITCMD no момент da doação versus o valor no momento da morte (bens podem
+                    valorizar muito);</li>
+                <li>Rapidez na transmissão — o herdeiro já tem o bem registrado em seu nome antes da morte do doador.
+                </li>
+            </ul>
 
-<h2>Cláusulas protetoras que podem ser inseridas</h2>
-<h3>Inalienabilidade</h3>
-<p>O donatário (filho) fica impedido de vender, hipotecar ou dar o bem em garantia enquanto a cláusula vigorar. Protege contra decisões precipitadas ou pressão de credores.</p>
+            <div class="highlight-box">
+                <p><strong>Atenção ao ITCMD:</strong> A doação gera incidência do ITCMD. Porém, o imposto é calculado
+                    sobre o valor da nua-propriedade (descontado o usufruto), que é menor que o valor integral do bem —
+                    resultando em economia real.</p>
+            </div>
 
-<h3>Impenhorabilidade</h3>
-<p>O bem não pode ser penhorado por dívidas do donatário — exceto dívidas de alimentos e tributos incidentes sobre o próprio bem.</p>
+            <h2>Cláusulas protetoras que podem ser inseridas</h2>
+            <h3>Inalienabilidade</h3>
+            <p>O donatário (filho) fica impedido de vender, hipotecar ou dar o bem em garantia enquanto a cláusula
+                vigorar. Protege contra decisões precipitadas ou pressão de credores.</p>
 
-<h3>Incomunicabilidade</h3>
-<p>O bem não entra na comunhão com o cônjuge ou companheiro do donatário. Se ele se separar, o bem permanece exclusivamente seu.</p>
+            <h3>Impenhorabilidade</h3>
+            <p>O bem não pode ser penhorado por dívidas do donatário — exceto dívidas de alimentos e tributos incidentes
+                sobre o próprio bem.</p>
 
-<h2>Revogação da doação é possível?</h2>
-<p>A lei permite a revogação da doação em casos de <strong>ingratidão</strong> do donatário (atentado contra a vida, crimes, injúria grave). Isso serve como proteção adicional ao doador, que pode desfazer a doação em situações extremas.</p>
-<p>A revogação também é possível quando a doação compromete o sustento do doador — uma proteção legal para garantir que o ato de generosidade não coloque o doador em situação de indigência.</p>
+            <h3>Incomunicabilidade</h3>
+            <p>O bem não entra na comunhão com o cônjuge ou companheiro do donatário. Se ele se separar, o bem permanece
+                exclusivamente seu.</p>
 
-<h2>Conclusão</h2>
-<p>A doação com reserva de usufruto é uma estratégia elegante e eficaz que une planejamento sucessório, proteção patrimonial e economia tributária. Mas exige assessoria jurídica especializada para que os documentos — especialmente a escritura pública — sejam redigidos com as cláusulas e proteções corretas.</p>
+            <h2>Revogação da doação é possível?</h2>
+            <p>A lei permite a revogação da doação em casos de <strong>ingratidão</strong> do donatário (atentado contra
+                a vida, crimes, injúria grave). Isso serve como proteção adicional ao doador, que pode desfazer a doação
+                em situações extremas.</p>
+            <p>A revogação também é possível quando a doação compromete o sustento do doador — uma proteção legal para
+                garantir que o ato de generosidade não coloque o doador em situação de indigência.</p>
+
+            <h2>Conclusão</h2>
+            <p>A doação com reserva de usufruto é uma estratégia elegante e eficaz que une planejamento sucessório,
+                proteção patrimonial e economia tributária. Mas exige assessoria jurídica especializada para que os
+                documentos — especialmente a escritura pública — sejam redigidos com as cláusulas e proteções corretas.
+            </p>
 
 
             <div class="article-author-box">
@@ -235,7 +281,8 @@
 
             <div class="article-cta-bar">
                 <h3>Ficou com dúvidas? Fale diretamente com o Dr. Estevão Cursi.</h3>
-                <p>Atendimento personalizado, sem custo inicial. Explique seu caso e receba uma orientação especializada.</p>
+                <p>Atendimento personalizado, sem custo inicial. Explique seu caso e receba uma orientação
+                    especializada.</p>
                 <div class="article-nav-buttons">
                     <a href="../../blog.html" class="btn--back">&#8592; Voltar para os Artigos</a>
                     <a href="../../index.html#contato" class="btn btn--primary">Falar com o Advogado</a>
@@ -249,7 +296,8 @@
             <div class="footer__content">
                 <div class="footer__section">
                     <h4>Dr. Estevão Cursi</h4>
-                    <p style="color:var(--text-secondary);line-height:1.7;">Advocacia de excelência com compromisso ético e foco em resultados concretos.</p>
+                    <p style="color:var(--text-secondary);line-height:1.7;">Advocacia de excelência com compromisso
+                        ético e foco em resultados concretos.</p>
                 </div>
                 <div class="footer__section">
                     <h4>Áreas de Atuação</h4>
@@ -278,4 +326,5 @@
 
     <script src="../../js/main.js"></script>
 </body>
+
 </html>
