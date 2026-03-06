@@ -50,6 +50,49 @@ class DrEstevaoAgent:
         self.conversation_history = []
         self.investigation_count = 0  # Contador de perguntas investigativas
 
+    # Greeting / casual phrases detection
+    GREETING_PATTERNS = [
+        "olá", "ola", "oi", "oie", "eae", "eai", "e aí", "e ai",
+        "bom dia", "boa tarde", "boa noite", "boa madrugada",
+        "hello", "hi", "hey", "tudo bem", "tudo bom", "como vai",
+        "fala", "salve", "blz", "beleza", "suave", "tranquilo",
+    ]
+
+    def _is_greeting(self, text: str) -> bool:
+        """Detect if user message is a simple greeting or casual opener."""
+        cleaned = text.strip().lower().rstrip("!?.")
+        # Exact or near-exact match with known greetings
+        if cleaned in self.GREETING_PATTERNS:
+            return True
+        # Short messages (<=4 words) containing a greeting keyword
+        words = cleaned.split()
+        if len(words) <= 4:
+            for pattern in self.GREETING_PATTERNS:
+                if pattern in cleaned:
+                    return True
+        return False
+
+    def _get_friendly_greeting_reply(self) -> str:
+        """Return a warm, human reply to a casual greeting."""
+        replies = [
+            "Olá! Tudo bem? Fico feliz que tenha entrado em contato. "
+            "Sou o Dr. Estevão, advogado com experiência em diversas áreas do Direito. "
+            "Me conta: como posso te ajudar hoje?",
+
+            "Oi! Que bom falar com você! "
+            "Aqui é o Dr. Estevão. Estou à disposição para te ouvir e entender sua situação. "
+            "Fique à vontade para me contar o que está acontecendo.",
+
+            "Olá! Seja muito bem-vindo! "
+            "Sou o Dr. Estevão, advogado especialista. "
+            "Pode ficar tranquilo e me contar o que te trouxe aqui. Estou pronto para te ouvir.",
+
+            "Oi! Tudo certo? "
+            "Meu nome é Dr. Estevão, sou advogado e atuo em várias áreas do Direito. "
+            "Me diz: o que posso fazer por você hoje?",
+        ]
+        return random.choice(replies)
+
     def get_greeting_responses(self) -> List[str]:
         """Saudações profissionais do Dr. Estevão"""
         return [
@@ -471,28 +514,38 @@ class DrEstevaoAgent:
 
         # 2. LISTENING - Escuta ativa e diagnóstico inicial
         elif self.conversation_stage == "listening":
-            diagnosis = self.identify_legal_area(user_input)
-            self.client_data["problema_relatado"] = user_input
 
-            response_text = diagnosis["response"] + "\n\n"
-
-            if diagnosis["identified"]:
-                # Se identificou a área, inicia investigação
-                investigation = self.strategic_investigation(user_input)
-                response_text += investigation["question"]
-                self.conversation_stage = "investigation"
-                response = {
-                    "text": response_text,
-                    "stage": "investigation",
-                    "area_identificada": diagnosis["area"]
-                }
-            else:
-                # Se não identificou, pede mais informações
-                response_text += "\n\nPode me contar com mais detalhes o que aconteceu?"
+            # Detect casual greetings and respond naturally
+            if self._is_greeting(user_input):
+                response_text = self._get_friendly_greeting_reply()
+                # Stay in listening stage — wait for real problem description
                 response = {
                     "text": response_text,
                     "stage": "listening"
                 }
+            else:
+                diagnosis = self.identify_legal_area(user_input)
+                self.client_data["problema_relatado"] = user_input
+
+                response_text = diagnosis["response"] + "\n\n"
+
+                if diagnosis["identified"]:
+                    # Se identificou a área, inicia investigação
+                    investigation = self.strategic_investigation(user_input)
+                    response_text += investigation["question"]
+                    self.conversation_stage = "investigation"
+                    response = {
+                        "text": response_text,
+                        "stage": "investigation",
+                        "area_identificada": diagnosis["area"]
+                    }
+                else:
+                    # Se não identificou, pede mais informações
+                    response_text += "\n\nPode me contar com mais detalhes o que aconteceu?"
+                    response = {
+                        "text": response_text,
+                        "stage": "listening"
+                    }
 
         # 3. INVESTIGATION - Perguntas estratégicas (até 3 perguntas)
         elif self.conversation_stage == "investigation":
