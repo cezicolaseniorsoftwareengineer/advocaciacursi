@@ -63,6 +63,11 @@ async def serve_video():
     return FileResponse(str(PROJECT_ROOT / "video_cursi.mp4"), media_type="video/mp4")
 
 
+@app.get("/index.html")
+async def serve_index_html():
+    return FileResponse(str(PROJECT_ROOT / "index.html"))
+
+
 @app.get("/")
 async def serve_index():
     return FileResponse(str(PROJECT_ROOT / "index.html"))
