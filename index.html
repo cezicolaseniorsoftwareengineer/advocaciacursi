@@ -495,21 +495,17 @@
     <script src="js/main.js"></script>
     <script src="js/chatbot.js"></script>
     <script>
-        // Detectar ambiente e inicializar chat
         document.addEventListener('DOMContentLoaded', function () {
             const isDev = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1';
             const backendUrl = isDev
                 ? 'http://localhost:8000/api/v1/chat'
-                : 'https://advocaciacursi.onrender.com/api/v1/chat';
+                : window.location.origin + '/api/v1/chat';
 
-            console.log('🚀 Inicializando Dr. Estevão ChatBot');
-            console.log('   Ambiente:', isDev ? '💻 Desenvolvimento' : '🌐 Produção');
-            console.log('   Backend:', backendUrl);
+            console.log('Inicializando Dr. Estevao ChatBot');
+            console.log('Ambiente:', isDev ? 'Desenvolvimento' : 'Producao');
+            console.log('Backend:', backendUrl);
 
-            // Inicializar widget de chat (única inicialização!)
             window.drEstevaoChat = new DrEstevaoChat({ backendUrl: backendUrl });
-
-            console.log('✅ Chat widget pronto! Procure por um botão de mensagem 💬 na lateral direita.');
         });
     </script>
 </body>
