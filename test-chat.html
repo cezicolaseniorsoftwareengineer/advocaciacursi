@@ -128,7 +128,7 @@
             const isDev = window.location.hostname === 'localhost';
             const backendUrl = isDev
                 ? 'http://localhost:8000/api/v1/chat'
-                : 'https://dr-estevao-backend.onrender.com/api/v1/chat';
+                : 'https://advocaciacursi.onrender.com/api/v1/chat';
 
             fetch(backendUrl + '/init', { method: 'POST' })
                 .then(r => {
