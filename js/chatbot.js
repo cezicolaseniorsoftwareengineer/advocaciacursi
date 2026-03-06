@@ -41,11 +41,11 @@ class DrEstevaoChat {
 
       .chat-cloud-button {
         position: relative;
-        width: 60px;
-        height: 60px;
+        width: 62px;
+        height: 62px;
         background: linear-gradient(135deg, #3b82f6 0%, #8b5cf6 100%);
         border: none;
-        border-radius: 30px;
+        border-radius: 50%;
         cursor: pointer;
         display: flex;
         align-items: center;
@@ -53,6 +53,7 @@ class DrEstevaoChat {
         box-shadow: 0 4px 20px rgba(59, 130, 246, 0.3);
         transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
         padding: 0;
+        overflow: visible;
       }
 
       .chat-cloud-button:hover {
@@ -64,11 +65,54 @@ class DrEstevaoChat {
         transform: scale(0.95);
       }
 
-      /* Cloud SVG Icon */
+      /* Message SVG Icon */
       .cloud-icon {
-        width: 32px;
-        height: 32px;
+        width: 30px;
+        height: 30px;
         fill: white;
+        filter: drop-shadow(0 1px 2px rgba(0,0,0,0.15));
+      }
+
+      /* Dust particles ring */
+      .chat-dust {
+        position: absolute;
+        width: 90px;
+        height: 90px;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        pointer-events: none;
+        animation: dust-rotate 8s linear infinite;
+      }
+
+      .chat-dust .dot {
+        position: absolute;
+        border-radius: 50%;
+        opacity: 0;
+        animation: dust-pulse 3s ease-in-out infinite;
+      }
+
+      .chat-dust .dot:nth-child(1)  { width:3px; height:3px; top:0;    left:50%;  background:#a5b4fc; animation-delay:0s;   }
+      .chat-dust .dot:nth-child(2)  { width:2px; height:2px; top:10%;  left:85%;  background:#818cf8; animation-delay:0.4s; }
+      .chat-dust .dot:nth-child(3)  { width:3px; height:3px; top:35%;  left:95%;  background:#c4b5fd; animation-delay:0.8s; }
+      .chat-dust .dot:nth-child(4)  { width:2px; height:2px; top:65%;  left:90%;  background:#93c5fd; animation-delay:1.2s; }
+      .chat-dust .dot:nth-child(5)  { width:3px; height:3px; top:90%;  left:70%;  background:#a5b4fc; animation-delay:1.6s; }
+      .chat-dust .dot:nth-child(6)  { width:2px; height:2px; top:95%;  left:40%;  background:#818cf8; animation-delay:2.0s; }
+      .chat-dust .dot:nth-child(7)  { width:3px; height:3px; top:85%;  left:10%;  background:#c4b5fd; animation-delay:2.4s; }
+      .chat-dust .dot:nth-child(8)  { width:2px; height:2px; top:60%;  left:2%;   background:#93c5fd; animation-delay:0.3s; }
+      .chat-dust .dot:nth-child(9)  { width:2px; height:2px; top:30%;  left:5%;   background:#a5b4fc; animation-delay:0.7s; }
+      .chat-dust .dot:nth-child(10) { width:3px; height:3px; top:8%;   left:25%;  background:#818cf8; animation-delay:1.1s; }
+      .chat-dust .dot:nth-child(11) { width:2px; height:2px; top:5%;   left:70%;  background:#c4b5fd; animation-delay:1.5s; }
+      .chat-dust .dot:nth-child(12) { width:2px; height:2px; top:50%;  left:97%;  background:#93c5fd; animation-delay:1.9s; }
+
+      @keyframes dust-rotate {
+        from { transform: translate(-50%, -50%) rotate(0deg); }
+        to   { transform: translate(-50%, -50%) rotate(360deg); }
+      }
+
+      @keyframes dust-pulse {
+        0%, 100% { opacity: 0; transform: scale(0.5); }
+        50%      { opacity: 0.8; transform: scale(1.3); }
       }
 
       /* Tooltip - "Atendimento 24h" */
@@ -473,8 +517,17 @@ class DrEstevaoChat {
 
     widget.innerHTML = `
       <button class="chat-cloud-button" aria-label="Abrir chat de atendimento">
+        <div class="chat-dust">
+          <span class="dot"></span><span class="dot"></span><span class="dot"></span>
+          <span class="dot"></span><span class="dot"></span><span class="dot"></span>
+          <span class="dot"></span><span class="dot"></span><span class="dot"></span>
+          <span class="dot"></span><span class="dot"></span><span class="dot"></span>
+        </div>
         <svg class="cloud-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-          <path d="M19.35 10.04C18.67 6.59 15.64 4 12 4c-1.48 0-2.85.43-4.01 1.17-.5.35-1.02-.21-1.02-.79 0-2.65 2.05-4.8 4.59-4.8 2.29 0 4.25 1.54 4.81 3.63.98-.04 1.95.19 2.84.77 1.08-.88 2.49-1.4 4.02-1.4 3.31 0 6 2.69 6 6 0 .5-.08.99-.2 1.46.62.37 1.2.82 1.69 1.35C23.5 14.5 23 15 22.45 15H2.57c-.64 0-1.21-.56-1.21-1.25 0-.65.56-1.21 1.21-1.21h.13c.04-.31.12-.61.25-.89C2.08 10.4 1 8.86 1 7.08 1 5.42 2.15 4 3.58 4c1.02 0 1.93.6 2.4 1.47.72-.29 1.51-.45 2.34-.45 4.41 0 8 3.59 8 8 0 .37-.03.73-.08 1.09z"/>
+          <path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm0 14H5.2L4 17.2V4h16v12z"/>
+          <circle cx="8" cy="10" r="1.2"/>
+          <circle cx="12" cy="10" r="1.2"/>
+          <circle cx="16" cy="10" r="1.2"/>
         </svg>
         <div class="chat-tooltip">Atendimento 24h</div>
       </button>
